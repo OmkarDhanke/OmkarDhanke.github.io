@@ -61,7 +61,7 @@ a { text-decoration: none; color: inherit; }
 .nav-logo {
   font-family: var(--font-head);
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -0.02em;
 }
 .nav-logo span { color: var(--accent); }
@@ -277,6 +277,7 @@ a { text-decoration: none; color: inherit; }
 .btn-secondary:hover {
   border-color: var(--text-muted);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79,142,247,0.28);
 }
 
 /* Stats row */
@@ -552,7 +553,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .pill:hover {
-  background: rgba(79,142,247,0.15);
+  box-shadow: 0 8px 24px rgba(79,142,247,0.28);
 }
 
 .pill-dim {
