@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Omkar Dhanke — Data Analyst portfolio. Business-first analytics using SQL, Python, Power BI, and Excel." />
+  <meta name="keywords" content="Omkar Dhanke, Data Analyst, SQL, Power BI, Python, Excel, FMCG Analytics, Portfolio" />
+  <meta name="author" content="Omkar Dhanke" />
+
+  <title>Omkar Dhanke | Data Analyst</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <img src="assets/images/profile.png" class="nav-avatar" />
+        Omkar<span class="accent-name">Dhanke.</span>
+      </a>
+      
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="https://github.com/OmkarDhanke" target="_blank" class="nav-github">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+ <section class="hero" id="home">
+  <div class="hero-orb"></div>
+  <div class="hero-orb-2"></div>
+
+  <div class="hero-container">
+
+    <!-- LEFT COLUMN -->
+    <div class="hero-left">
+
+      <div class="hero-tag-wrap" data-aos="fade-up" data-aos-delay="0">
+        <span class="hero-tag-dot"></span>
+        <p class="hero-tag">FSA Trainee @ General Mills · Mumbai</p>
+      </div>
+
+      <h1 class="hero-headline" data-aos="fade-up" data-aos-delay="100">
+        I understand the<br />
+        <span class="accent">business problem</span><br />
+        before I touch the data.
+      </h1>
+
+      <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">
+        Data analyst building decision-ready insights using SQL, Python,
+        Power BI, and Excel across enterprise sales operations and
+        self-driven analytics projects.
+      </p>
+
+      <!-- Tool pills row — adds visual height to left column -->
+      <div class="hero-pills" data-aos="fade-up" data-aos-delay="280">
+        <span class="pill">SQL</span>
+        <span class="pill">Python</span>
+        <span class="pill">Power BI</span>
+        <span class="pill">Excel</span>
+      </div>
+
+      <div class="hero-actions" data-aos="fade-up" data-aos-delay="320">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+        <a href="#contact" class="btn-secondary">Download Resume</a>
+      </div>
+
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+        <div class="stat">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">End-to-End Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">100K+</span>
+          <span class="stat-label">Records Analyzed</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">$18K+</span>
+          <span class="stat-label">Revenue Leakage Found</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="hero-right" data-aos="fade-left" data-aos-delay="200">
+      <div class="hero-card">
+
+        <div class="card-header">
+          <div class="card-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="card-title">revenue_analysis.sql</p>
+        </div>
+
+        <div class="card-body">
+          <pre><code><span class="sql-comment">-- Identify revenue leakage by category</span>
+            <span class="sql-keyword">WITH</span> leakage_cte <span class="sql-keyword">AS</span> (
+              <span class="sql-keyword">SELECT</span>
+                customer_id,
+                contract_type,
+                billing_status,
+                <span class="sql-func">SUM</span>(expected_revenue)
+                  - <span class="sql-func">SUM</span>(actual_revenue)
+                  <span class="sql-keyword">AS</span> leakage_amount
+              <span class="sql-keyword">FROM</span> billing_data
+              <span class="sql-keyword">WHERE</span> billing_status != <span class="sql-string">'PAID'</span>
+              <span class="sql-keyword">GROUP BY</span> <span class="sql-number">1</span>, <span class="sql-number">2</span>, <span class="sql-number">3</span>
+            )
+            <span class="sql-keyword">SELECT</span> *,
+              <span class="sql-keyword">CASE</span>
+                <span class="sql-keyword">WHEN</span> leakage_amount > <span class="sql-number">1000</span>
+                <span class="sql-keyword">THEN</span> <span class="sql-string">'HIGH RISK'</span>
+                <span class="sql-keyword">ELSE</span> <span class="sql-string">'MONITOR'</span>
+              <span class="sql-keyword">END</span> <span class="sql-keyword">AS</span> risk_flag
+            <span class="sql-keyword">FROM</span> leakage_cte
+            <span class="sql-keyword">ORDER BY</span> leakage_amount <span class="sql-keyword">DESC</span>;</code></pre>
+            </div>
+
+        <!-- Result row inside card -->
+        <div class="card-result-row">
+          <div class="result-item">
+            <span class="result-dot result-dot--green"></span>
+            <span class="result-text">Query returned 247 rows</span>
+          </div>
+          <div class="result-item">
+            <span class="result-dot result-dot--yellow"></span>
+            <span class="result-text">38 HIGH RISK flagged</span>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-metric">
+            <span class="metric-value">$18,348</span>
+            <span class="metric-label">Leakage Identified</span>
+          </div>
+          <div class="card-badge">SQL · Power BI</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Placeholder sections -->
+<section class="about" id="about">
+  <div class="about-container">
+
+    <!-- Section label -->
+    <div class="section-label" data-aos="fade-up">
+      <span class="label-text">About Me</span>
+    </div>
+
+    <!-- Two column layout -->
+    <div class="about-grid">
+
+      <!-- LEFT: Story -->
+      <div class="about-left" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="about-headline">
+          A data analyst who thinks like<br />
+          <span class="accent">a business person first.</span>
+        </h2>
+
+        <p class="about-body">
+          I'm Omkar Dhanke currently working as an FSA Trainee at 
+          <strong>General Mills India Center</strong>, supporting North America 
+          sales operations for major retail accounts including Kroger and Albertsons.
+        </p>
+
+        <p class="about-body">
+          My approach to data is simple: understand the business context before 
+          touching the numbers. I spend time learning what the data represents 
+          operationally where it came from, what process generated it, and what 
+          questions actually matter before running a single query.
+        </p>
+
+        <p class="about-body">
+            I hold a B.Sc. in Information Technology from the University of Mumbai (CGPA 8.78/10) with hands-on
+            experience developing analytics solutions in SaaS billing forensics, telecom churn analysis, and 
+            operational monitoring, combining SQL, Excel, Python, and BI tools to solve operational and business problems.
+        </p>
+
+        <p class="about-body">
+          Right now I'm gaining enterprise-level exposure to trade planning systems, 
+          stakeholder reporting workflows, and platforms like NielsenIQ and 
+          BusinessObjects building the operational foundation to grow into a 
+          stronger analyst over time.
+        </p>
+        
+        <div class="about-links">
+          <a href="https://linkedin.com/in/omkar-dhanke" 
+             target="_blank" class="about-link">
+            LinkedIn 
+          </a>
+          <a href="https://github.com/OmkarDhanke" 
+             target="_blank" class="about-link">
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Facts + Education -->
+      <div class="about-right" data-aos="fade-up" data-aos-delay="200">
+
+        <!-- Quick facts card -->
+        <div class="facts-card">
+          <p class="facts-title">Quick Facts</p>
+          <ul class="facts-list">
+            <li>
+              <span class="fact-icon">🏢</span>
+              <span>FSA Trainee · General Mills India Center (via HGS)</span>
+            </li>
+            <li>
+              <span class="fact-icon">📍</span>
+              <span>Vasind, Thane · Working in Powai, Mumbai</span>
+            </li>
+            <li>
+              <span class="fact-icon">🎓</span>
+              <span>B.Sc. Information Technology · Mumbai University · 8.78 CGPA</span>
+            </li>
+            <li>
+              <span class="fact-icon">🛠️</span>
+              <span>SQL · Python · Power BI · Excel</span>
+            </li>
+            <li>
+              <span class="fact-icon">🎯</span>
+              <span>Business-first analyst · Context before code</span>
+            </li>
+            <li>
+              <span class="fact-icon">📈</span>
+              <span>Open to FMCG · Consulting · Operations Analytics roles</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Currently section -->
+        <div class="currently-card">
+          <p class="facts-title">Currently</p>
+          <ul class="currently-list">
+            <li>
+              <span class="curr-dot curr-dot--blue"></span>
+              <span>Supporting NAR sales ops at General Mills</span>
+            </li>
+
+            <li>
+              <span class="curr-dot curr-dot--yellow"></span>
+              <span>Building SQL,Python,Excel & Power BI skills daily</span>
+            </li>
+            <li>
+              <span class="curr-dot curr-dot--purple"></span>
+              <span>Growing this portfolio in public</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="projects" id="projects">
+  <div class="projects-container">
+
+    <div class="section-label" data-aos="fade-up">
+      <span class="label-text">Projects</span>
+    </div>
+
+    <div class="projects-header" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="projects-headline">
+        End-to-end analytics. <br /> <span class="accent">
+        Real business problems.</span>
+      </h2>
+      <p class="projects-sub">
+        Each project starts with a business question not a dataset.Built to reflect how analytics actually works inside organizations.
+      </p>
+    </div>
+
+    <!-- PROJECT 1 — FEATURED -->
+    <div class="project-featured" data-aos="fade-up" data-aos-delay="150">
+      <div class="project-featured-left">
+        <div class="project-meta">
+          <span class="project-number">01</span>
+          <span class="project-tag">SaaS · FinOps · SQL · Python · Power BI</span>
+        </div>
+        <h3 class="project-title">Revenue Leakage Detection</h3>
+        <p class="project-desc">
+          Designed and validated analytical controls to detect, classify, and 
+          monitor revenue leakage inside a simulated SaaS billing system. 
+          Reconciled subscriptions, invoices, and payments across three 
+          deterministic failure categories — surfacing $18,348 in exposure 
+          and identifying a 90% concentration in operational non-collection 
+          rather than system failures.
+        </p>
+        <ul class="project-outcomes">
+          <li>
+            <span class="outcome-dot"></span>
+            $18,348 in simulated leakage exposure identified across FY2024
+          </li>
+          <li>
+            <span class="outcome-dot"></span>
+            3 leakage categories: Zombie Accounts, Partial Payments, Ghost Subscribers
+          </li>
+          <li>
+            <span class="outcome-dot"></span>
+            5-page executive monitoring dashboard with regression detection
+          </li>
+          <li>
+            <span class="outcome-dot"></span>
+            Enterprise plans flagged as 70.8% of total exposure — concentrated risk
+          </li>
+        </ul>
+        <div class="project-actions">
+          <a href="https://github.com/OmkarDhanke/Revenue-leakage-subscription-analytics" 
+             target="_blank" class="btn-primary">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-featured-right">
+        <div class="project-visual">
+          <div class="visual-header">
+            <div class="card-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="visual-title">leakage_classification.sql</span>
+          </div>
+          <div class="visual-body">
+            <pre><code><span class="sql-comment">-- Classify all leakage types</span>
+<span class="sql-keyword">SELECT</span>
+  i.customer_id,
+  i.invoice_amount,
+  <span class="sql-string">'Zombie Account'</span>
+    <span class="sql-keyword">AS</span> leakage_type,
+  i.invoice_amount
+    <span class="sql-keyword">AS</span> exposure
+<span class="sql-keyword">FROM</span> invoices i
+<span class="sql-keyword">LEFT JOIN</span> payments p
+  <span class="sql-keyword">ON</span> i.invoice_id
+    = p.invoice_id
+<span class="sql-keyword">WHERE</span> p.payment_id
+  <span class="sql-keyword">IS NULL</span>
+  <span class="sql-keyword">AND</span> i.status
+    = <span class="sql-string">'Open'</span>
+
+<span class="sql-keyword">UNION ALL</span>
+
+<span class="sql-keyword">SELECT</span>
+  customer_id,
+  invoice_amount,
+  <span class="sql-string">'Partial Payment'</span>,
+  invoice_amount
+    - paid_amount
+<span class="sql-keyword">FROM</span> payments
+<span class="sql-keyword">WHERE</span> paid_amount
+  &lt; invoice_amount;</code></pre>
+          </div>
+          <div class="visual-footer">
+            <div class="vf-stat">
+              <span class="vf-value">$18,348</span>
+              <span class="vf-label">Total Exposure</span>
+            </div>
+            <div class="vf-stat">
+              <span class="vf-value">90.3%</span>
+              <span class="vf-label">Zombie Accounts</span>
+            </div>
+            <div class="vf-stat">
+              <span class="vf-value">549</span>
+              <span class="vf-label">Accounts Flagged</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS GRID — 3 cards -->
+    <div class="projects-grid">
+
+      <!-- PROJECT 2 -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="pc-top">
+          <div class="pc-meta">
+            <span class="project-number">02</span>
+            <span class="project-tag">Customer Ops · Python · Power BI</span>
+          </div>
+          <h3 class="pc-title">Customer Support Operations Intelligence</h3>
+          <p class="pc-desc">
+            Built an end-to-end operational analytics system across 100,000 
+            support tickets to surface demand patterns, workload imbalance, 
+            and SLA breach risk — delivered as a five-page Power BI 
+            monitoring dashboard for support operations leaders.
+          </p>
+        </div>
+        <ul class="pc-outcomes">
+          <li><span class="outcome-dot"></span>100K tickets · 80 agents · 6 countries analyzed</li>
+          <li><span class="outcome-dot"></span>10.58% SLA breach rate identified and mapped</li>
+          <li><span class="outcome-dot"></span>Demand peaks isolated to mid-week business hours</li>
+        </ul>
+        <div class="pc-footer">
+          <div class="pc-tools">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">Pandas</span>
+          </div>
+          <a href="https://github.com/OmkarDhanke/supportpulse-customer-support-load-forecasting" 
+             target="_blank" class="pc-link">View Project</a>
+        </div>
+      </div>
+
+      
+      <!-- PROJECT 3 -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="pc-top">
+          <div class="pc-meta">
+            <span class="project-number">03</span>
+            <span class="project-tag">Operations · Excel · Power Query</span>
+          </div>
+          <h3 class="pc-title">Operational Backlog Monitoring & Risk Analysis</h3>
+          <p class="pc-desc">
+            Transformed 100,000+ NYC 311 service records into a four-page 
+            navigable Excel reporting system — demonstrating that structured 
+            data modeling and careful metric design can support operational 
+            decisions without external BI tools.
+          </p>
+        </div>
+        <ul class="pc-outcomes">
+          <li><span class="outcome-dot"></span>100K+ records cleaned via Power Query</li>
+          <li><span class="outcome-dot"></span>Aging bucket analysis flagged 90+ day extreme delays</li>
+          <li><span class="outcome-dot"></span>Four-page navigable dashboard — Excel only</li>
+        </ul>
+        <div class="pc-footer">
+          <div class="pc-tools">
+            <span class="tool-tag">Excel</span>
+            <span class="tool-tag">Power Query</span>
+            <span class="tool-tag">PivotTables</span>
+          </div>
+          <a href="https://github.com/OmkarDhanke/Operational-backlog-monitoring-system" 
+             target="_blank" class="pc-link">View Project</a>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="pc-top">
+          <div class="pc-meta">
+            <span class="project-number">04</span>
+            <span class="project-tag">Telecom · SQL · Churn Analytics</span>
+          </div>
+          <h3 class="pc-title">Telco Customer Churn Analysis</h3>
+          <p class="pc-desc">
+            Conducted end-to-end SQL churn analysis on a normalized telecom 
+            database — from schema design and data cleaning through to 
+            advanced segmentation queries and BI-ready views built for 
+            retention strategy support.
+          </p>
+        </div>
+        <ul class="pc-outcomes">
+          <li><span class="outcome-dot"></span>43% churn concentration in month-to-month contracts</li>
+          <li><span class="outcome-dot"></span>Top 10% high-value customers segmented for retention</li>
+          <li><span class="outcome-dot"></span>Advanced SQL: CTEs, window functions, BI-ready views</li>
+        </ul>
+        <div class="pc-footer">
+          <div class="pc-tools">
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">CTEs</span>
+            <span class="tool-tag">Window Functions</span>
+          </div>
+          <a href="https://github.com/OmkarDhanke/Telco-customer-churn-sql-project" 
+             target="_blank" class="pc-link">View Project</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="skills" id="skills">
+  <div class="skills-container">
+
+    <div class="section-label" data-aos="fade-up">
+      <span class="label-text">Skills & Tools</span>
+    </div>
+
+    <div class="skills-header" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="skills-headline">
+        The tools I use.<br />
+        <span class="accent">The thinking behind them.</span>
+      </h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <!-- CARD 1 -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="skill-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <h3 class="skill-card-title">SQL</h3>
+        <p class="skill-card-desc">My primary analytical language. I write queries that answer business questions not just retrieve rows.</p>
+        <ul class="skill-tags">
+          <li>Joins & Aggregations</li>
+          <li>Window Functions</li>
+          <li>CTEs</li>
+          <li>Subqueries</li>
+          <li>MySQL · PostgreSQL</li>
+        </ul>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="skill-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3 class="skill-card-title">Python</h3>
+        <p class="skill-card-desc">Used for data cleaning, EDA, and risk profiling bridging raw data and analytical insight.</p>
+        <ul class="skill-tags">
+          <li>Pandas</li>
+          <li>NumPy</li>
+          <li>Matplotlib</li>
+          <li>Seaborn</li>
+          <li>Jupyter Notebook</li>
+        </ul>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="skill-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3 class="skill-card-title">Power BI</h3>
+        <p class="skill-card-desc">I build dashboards that guide decisions structured around business questions, not chart variety.</p>
+        <ul class="skill-tags">
+          <li>DAX</li>
+          <li>Data Modeling</li>
+          <li>KPI Design</li>
+          <li>Multi-page Reports</li>
+          <li>Interactive Filters</li>
+        </ul>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="skill-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <h3 class="skill-card-title">Excel</h3>
+        <p class="skill-card-desc">Beyond formulas I use Excel as a full reporting environment with structured data modeling.</p>
+        <ul class="skill-tags">
+          <li>Power Query</li>
+          <li>PivotTables</li>
+          <li>Advanced Formulas</li>
+          <li>Dashboard Design</li>
+          <li>Data Validation</li>
+        </ul>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="skill-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3 class="skill-card-title">Enterprise Platforms</h3>
+        <p class="skill-card-desc">Gaining hands-on exposure to enterprise analytics and trade management systems at General Mills.</p>
+        <ul class="skill-tags">
+          <li>NielsenIQ</li>
+          <li>Circana</li>
+          <li>BusinessObjects</li>
+          <li>Trade Planner</li>
+          <li>Retail Link</li>
+        </ul>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="skill-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h3 class="skill-card-title">Analytics Thinking</h3>
+        <p class="skill-card-desc">The skill underneath all tools understanding context, asking the right question, and communicating clearly.</p>
+        <ul class="skill-tags">
+          <li>EDA</li>
+          <li>Root Cause Analysis</li>
+          <li>KPI Design</li>
+          <li>Data Storytelling</li>
+          <li>Stakeholder Reporting</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</section>
+
+<!-- Certifications row -->
+<section class="certifications" id="certifications">
+  <div class="certs-container">
+
+    <div class="section-label" data-aos="fade-up">  
+      <span class="label-text">Certifications</span>
+    </div>
+
+    <div class="certs-header" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="skills-headline">
+        What I've earned.<br /> <span class="accent">What it represents.</span>
+      </h2>
+    </div>
+
+    <div class="certs-grid">
+
+      <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="cert-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </div>
+        <div class="cert-card-body">
+          <p class="cert-card-issuer">Oracle</p>
+          <h3 class="cert-card-title">Analytics Cloud 2025 Certified Professional</h3>
+          <p class="cert-card-desc">Certified in data modeling, visualization, and augmented analytics using Oracle Analytics Cloud.</p>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="cert-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          </svg>
+        </div>
+        <div class="cert-card-body">
+          <p class="cert-card-issuer">Deloitte</p>
+          <h3 class="cert-card-title">Data Analytics Job Simulation</h3>
+          <p class="cert-card-desc">Applied data cleaning, analysis, dashboard development, and client reporting in a simulated consulting engagement.</p>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="cert-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <div class="cert-card-body">
+          <p class="cert-card-issuer">DataCamp</p>
+          <h3 class="cert-card-title">Introduction to SQL</h3>
+          <p class="cert-card-desc">Learned database querying, filtering, aggregation, joins, and relational data analysis using SQL.</p>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="cert-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <div class="cert-card-body">
+          <p class="cert-card-issuer">Quastech Institute</p>
+          <h3 class="cert-card-title">Data Analyst Training Program</h3>
+          <p class="cert-card-desc">Practical training in SQL, Python, Excel, and Power BI covering data cleaning, analysis, and dashboard development.</p>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="cert-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <div class="cert-card-body">
+          <p class="cert-card-issuer">Microsoft</p>
+          <h3 class="cert-card-title">Introduction to MS Excel</h3>
+          <p class="cert-card-desc">Developed foundational to intermediate skills in Excel for data preparation, analysis, and reporting.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-container">
+
+    <div class="section-label" data-aos="fade-up">
+      <span class="label-text">Contact</span>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div class="contact-left" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="contact-headline">
+          Let's talk about<br />
+          <span class="accent">data, work, or ideas.</span>
+        </h2>
+        <p class="contact-desc">
+          I'm always open to conversations about analytics, 
+          career opportunities, collaborations, or just 
+          exchanging ideas with people who love working 
+          with data.
+        </p>
+
+        <div class="contact-links">
+
+          <a href="mailto:dhankeomkar5@gmail.com" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-link-body">
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">omkardhanke11@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/omkar-dhanke" target="_blank" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </div>
+            <div class="contact-link-body">
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-value">linkedin.com/in/omkar-dhanke</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/OmkarDhanke" target="_blank" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </div>
+            <div class="contact-link-body">
+              <span class="contact-link-label">GitHub</span>
+              <span class="contact-link-value">github.com/OmkarDhanke</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="contact-right" data-aos="fade-up" data-aos-delay="200">
+        <div class="contact-card">
+          <p class="contact-card-label">Current Status</p>
+          <div class="status-row">
+            <span class="status-dot"></span>
+            <span class="status-text">Open to opportunities from September 2026</span>
+          </div>
+          <div class="contact-card-divider"></div>
+          <p class="contact-card-label">Based In</p>
+          <p class="contact-card-value">Vasind, Thane · Maharashtra, India</p>
+          <div class="contact-card-divider"></div>
+          <p class="contact-card-label">Working At</p>
+          <p class="contact-card-value">General Mills India Center · Powai, Mumbai</p>
+          <div class="contact-card-divider"></div>
+          <p class="contact-card-label">Interested In</p>
+          <div class="interest-tags">
+            <span class="interest-tag">FMCG Analytics</span>
+            <span class="interest-tag">Operations Analytics</span>
+            <span class="interest-tag">Business Intelligence</span>
+            <span class="interest-tag">Supply Chain Analytics</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="site-footer" data-aos="fade-up">
+      <p>Built by Omkar Dhanke · 2025</p>
+      <p>Designed & developed from scratch · Deployed on GitHub Pages</p>
+    </div>
+
+  </div>
+</section>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
