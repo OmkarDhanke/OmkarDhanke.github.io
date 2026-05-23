@@ -1196,7 +1196,8 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.03em;
 }
 
-/* Certifications */
+/* 
+Certifications 
 .certs-row {
   border-top: 1px solid var(--border);
   padding-top: 2rem;
@@ -1241,6 +1242,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--accent);
   flex-shrink: 0;
 }
+*/
 
 /* Skills responsive */
 @media (max-width: 1024px) {
