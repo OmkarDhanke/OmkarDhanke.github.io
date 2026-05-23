@@ -1159,6 +1159,29 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-3px);
 }
 
+.skill-card:hover .skill-card-icon {
+  border-color: rgba(79,142,247,0.35);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(79,142,247,0.12),
+      rgba(79,142,247,0.05)
+    );
+
+  box-shadow:
+    0 0 20px rgba(79,142,247,0.18),
+    0 0 40px rgba(79,142,247,0.08);
+}
+
+.skill-card:hover .skill-card-icon i,
+.skill-card:hover .skill-card-icon svg {
+  color: #6aa6ff;
+
+  filter:
+    drop-shadow(0 0 8px rgba(79,142,247,0.45));
+}
+
 .skill-card-icon {
   color: var(--accent);
   width: 36px;
