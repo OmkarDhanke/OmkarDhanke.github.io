@@ -3,7 +3,7 @@
    ============================================================ */
 
 .projects {
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
 scroll-margin-top: calc(var(--nav-h) + 0.5rem);
 }
 
