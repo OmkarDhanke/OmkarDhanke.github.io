@@ -1,0 +1,75 @@
+/* ============================================================
+   BADGES & PILLS
+   Tool tags, interest tags, cert tags, hero pills.
+   ============================================================ */
+
+/* Hero pills */
+.pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(79, 142, 247, 0.08);
+  border: 1px solid rgba(79, 142, 247, 0.2);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+  transition: background var(--transition-fast);
+  display: inline-block;
+}
+
+.pill:hover {
+  background: rgba(79, 142, 247, 0.15);
+}
+
+.pill-dim {
+  color: var(--text-muted);
+  background: rgba(136, 136, 170, 0.06);
+  border-color: rgba(136, 136, 170, 0.15);
+}
+
+/* Tool tags — project cards */
+.tool-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(136, 136, 170, 0.08);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}
+
+/* Card badge — code card footer */
+.card-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(79, 142, 247, 0.08);
+  border: 1px solid rgba(79, 142, 247, 0.18);
+  padding: 0.28rem 0.65rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* Interest tags — contact section */
+.interest-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(79, 142, 247, 0.08);
+  border: 1px solid rgba(79, 142, 247, 0.18);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+}
+
+/* Cert tag */
+.cert-card-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(136, 136, 170, 0.08);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  align-self: flex-start;
+}

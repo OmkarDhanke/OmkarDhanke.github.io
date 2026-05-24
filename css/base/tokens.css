@@ -1,0 +1,49 @@
+/* ============================================================
+   DESIGN TOKENS
+   Single source of truth for all colors, fonts, and spacing.
+   Edit here — changes propagate everywhere automatically.
+   ============================================================ */
+
+:root {
+  /* --- Colors --- */
+  --bg:          #0a0a0f;
+  --surface:     #12121a;
+  --surface-2:   #16161f;
+  --accent:      #4f8ef7;
+  --accent-h:    #3a7be0;
+  --text:        #f0f0f5;
+  --text-muted:  #8888aa;
+  --border:      #1e1e2e;
+
+  /* --- Status colors --- */
+  --green:  #28c840;
+  --yellow: #febc2e;
+  --red:    #ff5f57;
+  --purple: #bd93f9;
+
+  /* --- Typography --- */
+  --font-head: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* --- Layout --- */
+  --max-w:  1200px;
+  --nav-h:  68px;
+
+  /* --- Spacing scale --- */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  3rem;
+  --space-xl:  5rem;
+
+  /* --- Border radius --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  /* --- Transitions --- */
+  --transition-fast: 0.2s ease;
+  --transition-med:  0.3s ease;
+  --transition-slow: 0.35s ease;
+}

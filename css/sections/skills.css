@@ -1,0 +1,115 @@
+/* ============================================================
+   SKILLS SECTION
+   ============================================================ */
+
+.skills {
+  padding: 1rem 3rem;
+  scroll-margin-top: var(--nav-h);
+}
+
+.skills-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.skills-header {
+  margin-bottom: 1rem;
+}
+
+.skills-headline {
+  font-family: var(--font-head);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.skill-card:hover {
+  border-color: rgba(79,142,247,0.3);
+  transform: translateY(-3px);
+}
+
+.skill-card:hover .skill-card-icon {
+  border-color: rgba(79,142,247,0.35);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(79,142,247,0.12),
+      rgba(79,142,247,0.05)
+    );
+
+  box-shadow:
+    0 0 20px rgba(79,142,247,0.18),
+    0 0 40px rgba(79,142,247,0.08);
+}
+
+.skill-card:hover .skill-card-icon i,
+.skill-card:hover .skill-card-icon svg {
+  color: #6aa6ff;
+
+  filter:
+    drop-shadow(0 0 8px rgba(79,142,247,0.45));
+}
+
+.skill-card-icon {
+  color: var(--accent);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(79,142,247,0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(79,142,247,0.15);
+}
+
+.skill-card-title {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.skill-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.skill-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.skill-tags li {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(136,136,170,0.08);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
+}

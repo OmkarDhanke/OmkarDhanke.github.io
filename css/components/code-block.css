@@ -1,0 +1,154 @@
+/* ============================================================
+   CODE BLOCK
+   SQL card, syntax highlighting, result rows, footer metrics.
+   Used in hero section and project featured card.
+   ============================================================ */
+
+/* Card shell */
+.hero-card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.hero-card:hover {
+  transform: translateY(-5px) rotate3d(1, 0, 0, 1deg);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 30px 70px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(79, 142, 247, 0.08);
+}
+
+/* Mac-style header bar */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1.1rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.card-dots {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.card-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.card-dots span:nth-child(1) { background: var(--red); }
+.card-dots span:nth-child(2) { background: var(--yellow); }
+.card-dots span:nth-child(3) { background: var(--green); }
+
+.card-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* Code area */
+.card-body {
+  padding: 1.25rem 1.4rem;
+  max-height: 410px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 2px,
+    transparent 2px
+  );
+}
+
+.card-body::-webkit-scrollbar { display: none; }
+
+.card-body pre {
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.9vw, 0.76rem);
+  line-height: 1.8;
+  color: #c9d1d9;
+  white-space: pre;
+}
+
+/* SQL syntax colors */
+.sql-keyword { color: #ff79c6; font-weight: 600; }
+.sql-func    { color: #8be9fd; }
+.sql-string  { color: #f1fa8c; }
+.sql-number  { color: #bd93f9; }
+.sql-comment { color: #6272a4; font-style: italic; }
+
+/* Result row */
+.card-result-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.75rem 1.4rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border);
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.result-dot--green  { background: var(--green); }
+.result-dot--yellow { background: var(--yellow); }
+
+.result-text {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* Footer metric */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.4rem;
+  background: var(--surface-2);
+  border-top: 1px solid var(--border);
+}
+
+.card-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.metric-value {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

@@ -1,0 +1,33 @@
+/* ============================================================
+   MAIN CSS ENTRY POINT
+   Import order matters — tokens first, utilities last.
+   To add a new section: create css/sections/new-section.css
+   and add @import below.
+   ============================================================ */
+
+/* 1. Base — tokens, reset, typography */
+@import 'base/tokens.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
+
+/* 2. Layout — containers, navbar */
+@import 'layout/grid.css';
+@import 'layout/navbar.css';
+
+/* 3. Components — reusable UI pieces */
+@import 'components/buttons.css';
+@import 'components/badges.css';
+@import 'components/cards.css';
+@import 'components/code-block.css';
+
+/* 4. Sections — one file per page section */
+@import 'sections/hero.css';
+@import 'sections/about.css';
+@import 'sections/projects.css';
+@import 'sections/skills.css';
+@import 'sections/certifications.css';
+@import 'sections/contact.css';
+
+/* 5. Utilities — animations, responsive (always last) */
+@import 'utilities/animations.css';
+@import 'utilities/responsive.css';

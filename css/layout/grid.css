@@ -1,0 +1,17 @@
+/* ============================================================
+   GRID & LAYOUT
+   Container widths, section padding, scroll margins.
+   ============================================================ */
+
+/* Standard section container */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Standard section padding */
+.section {
+  padding: 3rem 3rem;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: var(--nav-h);
+}

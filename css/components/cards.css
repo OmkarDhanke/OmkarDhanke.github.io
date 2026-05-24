@@ -1,0 +1,17 @@
+/* ============================================================
+   ICON CARD
+   Shared card style used by skill cards and cert cards.
+   ============================================================ */
+
+.icon-card-icon {
+  color: var(--accent);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(79, 142, 247, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(79, 142, 247, 0.15);
+  flex-shrink: 0;
+}

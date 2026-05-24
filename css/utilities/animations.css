@@ -1,0 +1,15 @@
+/* ============================================================
+   ANIMATIONS
+   All keyframes and animation utilities in one place.
+   ============================================================ */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(1.4); }
+}
+
+/* Applied to hero tag dot and contact status dot */
+.hero-tag-dot,
+.status-dot {
+  animation: pulse 2.4s ease-in-out infinite;
+}

@@ -1,0 +1,45 @@
+/* ============================================================
+   BUTTONS
+   All button variants in one place.
+   ============================================================ */
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.72rem 1.6rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: background var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--accent-h);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 142, 247, 0.28);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  padding: 0.72rem 1.6rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid var(--border);
+  transition: border-color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-muted);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 142, 247, 0.1);
+}
