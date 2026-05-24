@@ -42,6 +42,31 @@
 
 /* Tablet portrait */
 @media (max-width: 900px) {
+  .navbar { padding: 0 1.5rem; }
+  .nav-links,
+  .nav-right { display: none; }
+  .nav-toggle { display: inline-flex; }
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    right: 0;
+    padding: 0 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    filter: blur(8px);
+    transition: opacity 0.22s ease, transform 0.22s ease, filter 0.22s ease, visibility 0.22s ease;
+  }
+  .navbar.menu-open .mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    filter: blur(0);
+  }
   .about { padding: 3rem 1.5rem 0; }
   .about-grid {
     grid-template-columns: 1fr;
@@ -53,7 +78,6 @@
 /* Tablet small */
 @media (max-width: 768px) {
   .navbar { padding: 0 1.5rem; }
-  .nav-links { display: none; }
 
   .hero { padding: 0 1.5rem; }
   .hero-container { padding: calc(var(--nav-h) + 2.5rem) 0 3rem; }
