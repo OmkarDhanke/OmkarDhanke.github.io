@@ -9,7 +9,7 @@
 
 .contact-container {
   max-width: var(--max-w);
-  margin: 0 auto;
+  margin:  auto;
 }
 
 .contact-grid {
@@ -39,7 +39,7 @@
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.85;
-  max-width: 440px;
+  max-width: 560px;
 }
 
 .contact-links {

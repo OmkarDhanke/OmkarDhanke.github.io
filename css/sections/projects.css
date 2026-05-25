@@ -3,8 +3,8 @@
    ============================================================ */
 
 .projects {
-  padding: 1rem 3rem;
-scroll-margin-top: calc(var(--nav-h) + 0.5rem);
+  padding: 1rem 3rem 1rem;
+  scroll-margin-top: var(--nav-h);
 }
 
 .projects-container {
