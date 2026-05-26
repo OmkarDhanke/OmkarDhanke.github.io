@@ -88,7 +88,7 @@ body::before {
 
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 18px, 0);
+  transform: translate3d(0, 20px, 0) scale(0.985);
   filter: blur(6px);
   transition:
     opacity 560ms var(--motion-ease),
@@ -100,12 +100,36 @@ body::before {
 
 .reveal.is-visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0) scale(1);
   filter: blur(0);
 }
 
 .reveal-group > .reveal-item {
   --reveal-delay: 0ms;
+}
+
+/* ============================================================
+   DIRECTIONAL REVEALS
+   Narrative content enters horizontally for pacing contrast.
+   ============================================================ */
+
+.reveal-left {
+  opacity: 0;
+  transform: translate3d(-22px, 0, 0);
+  filter: blur(4px);
+
+  transition:
+    opacity 560ms var(--motion-ease),
+    transform 560ms var(--motion-ease),
+    filter 560ms var(--motion-ease);
+
+  will-change: transform, opacity;
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
 }
 
 /* ============================================================
@@ -288,6 +312,36 @@ body::before {
 }
 
 /* ============================================================
+   METRIC EMPHASIS
+   Soft accent pulse after numeric completion.
+   ============================================================ */
+
+@keyframes stat-highlight {
+  0% {
+    color: var(--text-muted);
+    text-shadow: none;
+  }
+
+  50% {
+    color: var(--accent);
+    text-shadow:
+      0 0 10px rgba(79, 142, 247, 0.22),
+      0 0 18px rgba(79, 142, 247, 0.08);
+  }
+
+  100% {
+    color: var(--text);
+    text-shadow: none;
+  }
+}
+
+.stat-number.is-counted,
+.metric-value.is-counted,
+.vf-value.is-counted {
+  animation: stat-highlight 820ms ease forwards;
+}
+
+/* ============================================================
    SECTION RHYTHM
    Tiny pacing cleanup without changing layout proportions.
    ============================================================ */
@@ -362,6 +416,29 @@ body::before {
   .panel-glow::after {
     opacity: 0.18;
   }
+
+/* ============================================================
+   FEATURED SURFACE EMPHASIS
+   ============================================================ */
+
+.project-featured.is-visible {
+  animation: featured-border 820ms var(--motion-ease) forwards;
+}
+
+@keyframes featured-border {
+  0% {
+    border-color: rgba(79, 142, 247, 0);
+    box-shadow: none;
+  }
+
+  100% {
+    border-color: rgba(79, 142, 247, 0.24);
+
+    box-shadow:
+      0 14px 32px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(79, 142, 247, 0.08) inset;
+  }
+}
 
   .mini-trend {
     width: 108px;

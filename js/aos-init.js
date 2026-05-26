@@ -24,7 +24,9 @@ function applyRevealDelays() {
 }
 
 function setupRevealObserver() {
-  const revealElements = document.querySelectorAll('.reveal');
+  const revealElements = document.querySelectorAll(
+  '.reveal, .reveal-left'
+  );
 
   if (prefersReducedMotion.matches) {
     revealElements.forEach(element => element.classList.add('is-visible'));
@@ -97,6 +99,8 @@ function animateCounter(element) {
 
     if (progress < 1) {
       window.requestAnimationFrame(tick);
+    } else {
+    element.classList.add('is-counted');
     }
   }
 
