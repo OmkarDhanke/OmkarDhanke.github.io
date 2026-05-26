@@ -162,7 +162,6 @@ function setupMagneticButtons() {
 }
 
 function initMotionSystem() {
-  markLegacyAosElementsVisible();
   applyRevealDelays();
   setupRevealObserver();
   setupCounters();
@@ -174,3 +173,11 @@ if (document.readyState === 'loading') {
 } else {
   initMotionSystem();
 }
+
+AOS.init({
+  duration: 600,
+  once: true,
+  offset: 80,
+  easing: 'ease-out-cubic'
+});
+
