@@ -82,7 +82,7 @@
     pointer-events: auto;
     transform: translateY(0);
   }
-  .about { padding: 1rem 1.5rem 0; }
+  .about { padding: 1rem 1.5rem 3rem; }
   .projects { padding-top: 0.5rem; }
   .about-grid {
     grid-template-columns: 1fr;
