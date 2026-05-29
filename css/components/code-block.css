@@ -152,3 +152,45 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
+
+/* ── Rotating card transitions ── */
+.code-exit {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+@keyframes codeEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.code-enter {
+  animation: codeEnter 0.4s ease forwards;
+}
+
+/* ── Carousel dots ── */
+.code-card-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0 0.4rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.code-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.code-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+  box-shadow: 0 0 5px var(--accent);
+}
+
+.code-dot:hover { background: rgba(255,255,255,0.45); }

@@ -169,62 +169,49 @@
 
       <!-- RIGHT COLUMN -->
       <div class="hero-right" data-aos="fade-left" data-aos-delay="200">
-        <div class="hero-card reveal glow-track panel-glow chart-panel">
+        <div class="hero-card reveal glow-track panel-glow chart-panel" id="heroCodeCard">
 
           <div class="card-header">
             <div class="card-dots">
               <span></span><span></span><span></span>
             </div>
-            <p class="card-title">revenue_analysis.sql</p>
+            <p class="card-title" id="codeCardFilename">revenue_analysis.sql</p>
           </div>
 
-          <div class="card-body">
-            <pre><code><span class="sql-comment">-- Identify revenue leakage by category</span>
-            <span class="sql-keyword">WITH</span> leakage_cte <span class="sql-keyword">AS</span> (
-              <span class="sql-keyword">SELECT</span>
-                customer_id,
-                contract_type,
-                billing_status,
-                <span class="sql-func">SUM</span>(expected_revenue)
-                  - <span class="sql-func">SUM</span>(actual_revenue)
-                  <span class="sql-keyword">AS</span> leakage_amount
-              <span class="sql-keyword">FROM</span> billing_data
-              <span class="sql-keyword">WHERE</span> billing_status != <span class="sql-string">'PAID'</span>
-              <span class="sql-keyword">GROUP BY</span> <span class="sql-number">1</span>, <span class="sql-number">2</span>, <span class="sql-number">3</span>
-            )
-            <span class="sql-keyword">SELECT</span> *,
-              <span class="sql-keyword">CASE</span>
-                <span class="sql-keyword">WHEN</span> leakage_amount > <span class="sql-number">1000</span>
-                <span class="sql-keyword">THEN</span> <span class="sql-string">'HIGH RISK'</span>
-                <span class="sql-keyword">ELSE</span> <span class="sql-string">'MONITOR'</span>
-              <span class="sql-keyword">END</span> <span class="sql-keyword">AS</span> risk_flag
-            <span class="sql-keyword">FROM</span> leakage_cte
-            <span class="sql-keyword">ORDER BY</span> leakage_amount <span class="sql-keyword">DESC</span>;</code></pre>
+          <div class="card-body" id="codeCardBody">
+            <pre><code id="codeCardContent"></code></pre>
           </div>
 
-          <!-- Result row inside card -->
-          <div class="card-result-row">
+          <div class="card-result-row" id="codeCardResults">
             <div class="result-item">
               <span class="result-dot result-dot--green"></span>
-              <span class="result-text">Query returned 247 rows</span>
+              <span class="result-text" id="codeCardResult1"></span>
             </div>
             <div class="result-item">
               <span class="result-dot result-dot--yellow"></span>
-              <span class="result-text">38 HIGH RISK flagged</span>
+              <span class="result-text" id="codeCardResult2"></span>
             </div>
           </div>
 
           <div class="card-footer">
             <div class="card-metric">
-              <span class="metric-value countup">$18,348</span>
-              <span class="metric-label">Leakage Identified</span>
+              <span class="metric-value" id="codeCardMetricVal"></span>
+              <span class="metric-label" id="codeCardMetricLabel"></span>
             </div>
             <svg class="mini-trend" viewBox="0 0 120 32" aria-hidden="true">
               <path class="mini-trend-grid" d="M4 26.5H116" />
-              <path class="mini-trend-line" d="M4 23L22 23L40 19L58 20L76 14L94 12L116 7" />
-              <circle class="mini-trend-point" cx="116" cy="7" r="2.5" />
+              <path class="mini-trend-line" id="codeCardTrendLine" d="M4 23L22 23L40 19L58 20L76 14L94 12L116 7" />
+              <circle class="mini-trend-point" id="codeCardTrendDot" cx="116" cy="7" r="2.5" />
             </svg>
-            <div class="card-badge">SQL · Power BI</div>
+            <div class="card-badge" id="codeCardBadge">SQL · Power BI</div>
+          </div>
+
+          <!-- Carousel dots -->
+          <div class="code-card-nav">
+            <span class="code-dot active" data-idx="0"></span>
+            <span class="code-dot" data-idx="1"></span>
+            <span class="code-dot" data-idx="2"></span>
+            <span class="code-dot" data-idx="3"></span>
           </div>
 
         </div>
@@ -404,65 +391,54 @@
               class="btn-primary">View on GitHub</a>
           </div>
         </div>
+
         <div class="project-featured-right">
-          <div class="project-visual glow-track reveal chart-panel">
-            <div class="visual-header">
+          <div class="project-img-rotator glow-track panel-glow">
+
+            <div class="pir-header">
               <div class="card-dots">
                 <span></span><span></span><span></span>
               </div>
-              <span class="visual-title">leakage_classification.sql</span>
+              <span class="pir-filename" id="pirFilename">Executive Overview</span>
+              <span class="pir-counter" id="pirCounter">1 / 4</span>
             </div>
-            <div class="visual-body">
-              <pre><code><span class="sql-comment">-- Classify all leakage types</span>
-<span class="sql-keyword">SELECT</span>
-  i.customer_id,
-  i.invoice_amount,
-  <span class="sql-string">'Zombie Account'</span>
-    <span class="sql-keyword">AS</span> leakage_type,
-  i.invoice_amount
-    <span class="sql-keyword">AS</span> exposure
-<span class="sql-keyword">FROM</span> invoices i
-<span class="sql-keyword">LEFT JOIN</span> payments p
-  <span class="sql-keyword">ON</span> i.invoice_id
-    = p.invoice_id
-<span class="sql-keyword">WHERE</span> p.payment_id
-  <span class="sql-keyword">IS NULL</span>
-  <span class="sql-keyword">AND</span> i.status
-    = <span class="sql-string">'Open'</span>
 
-<span class="sql-keyword">UNION ALL</span>
+            <div class="pir-stage">
+              <img
+                src="assets/Dashboard/Executive_Overview.png"
+                alt="CloudFlow dashboard — Executive Overview"
+                class="pir-img"
+                id="pirImg"
+              />
+              <div class="pir-overlay"></div>
 
-<span class="sql-keyword">SELECT</span>
-  customer_id,
-  invoice_amount,
-  <span class="sql-string">'Partial Payment'</span>,
-  invoice_amount
-    - paid_amount
-<span class="sql-keyword">FROM</span> payments
-<span class="sql-keyword">WHERE</span> paid_amount
-  &lt; invoice_amount;</code></pre>
+              <!-- Prev / Next arrows -->
+              <button class="pir-arrow pir-arrow--prev" id="pirPrev" aria-label="Previous screenshot">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="15 18 9 12 15 6"/>
+                </svg>
+              </button>
+              <button class="pir-arrow pir-arrow--next" id="pirNext" aria-label="Next screenshot">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </button>
             </div>
-            <div class="visual-footer">
-              <div class="vf-stat">
-                <span class="vf-value countup">$18,348</span>
-                <span class="vf-label">Total Exposure</span>
+
+            <div class="pir-footer">
+              <div class="pir-dots">
+                <span class="pir-dot active" data-idx="0"></span>
+                <span class="pir-dot" data-idx="1"></span>
+                <span class="pir-dot" data-idx="2"></span>
+                <span class="pir-dot" data-idx="3"></span>
+                <span class="pir-dot" data-idx="4"></span>
               </div>
-              <div class="vf-stat">
-                <span class="vf-value countup">90.3%</span>
-                <span class="vf-label">Zombie Accounts</span>
-              </div>
-              <svg class="mini-trend mini-trend--wide" viewBox="0 0 140 32" aria-hidden="true">
-                <path class="mini-trend-grid" d="M4 26.5H136" />
-                <path class="mini-trend-line" d="M4 24L24 22L44 22L64 17L84 13L104 14L136 8" />
-                <circle class="mini-trend-point" cx="136" cy="8" r="2.5" />
-              </svg>
-              <div class="vf-stat">
-                <span class="vf-value countup">549</span>
-                <span class="vf-label">Accounts Flagged</span>
-              </div>
+              <span class="pir-page-label" id="pirPageLabel">Page 1 — Executive Overview</span>
             </div>
+
           </div>
         </div>
+
       </div>
 
       <!-- PROJECTS GRID — 3 cards -->
@@ -925,6 +901,9 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="js/aos-init.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/code-rotator.js"></script>
+  <script src="js/project-rotator.js"></script>
+
 </body>
 
 </html>

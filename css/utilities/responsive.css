@@ -1,13 +1,23 @@
 /* ============================================================
    RESPONSIVE
    All media queries in one place.
-   Breakpoints: 1440 | 1280 | 1024 | 900 | 768 | 680 | 600 | 480
+   Breakpoints: 1440 | 1280 | 1366 | 1024 | 900 | 768 | 680 | 600 | 480
    ============================================================ */
 
 /* Large monitors */
 @media (min-width: 1440px) {
   :root { --max-w: min(1300px, 90vw); }
   .hero-headline { font-size: clamp(2.8rem, 3vw, 3.6rem); }
+}
+
+/* 14-inch laptops — 1366px */
+@media (max-width: 1366px) {
+  .hero-container {
+    grid-template-columns: 54% 42%;
+    gap: 4%;
+  }
+  .hero-headline { font-size: clamp(1.6rem, 2.2vw, 2.8rem); }
+  .card-body { max-height: 320px; }
 }
 
 /* Standard laptop */
@@ -20,15 +30,6 @@
   .card-body { max-height: 300px; }
 }
 
-/* 14-inch laptops — 1366px */
-@media (max-width: 1366px) {
-  .hero-container {
-    grid-template-columns: 54% 42%;
-    gap: 4%;
-  }
-  .hero-headline { font-size: clamp(1.6rem, 2.2vw, 2.8rem); }
-  .card-body { max-height: 320px; }
-}
 
 /* Tablet landscape / small laptop */
 @media (max-width: 1024px) {
@@ -47,7 +48,7 @@
 
   .project-featured {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 2rem;
   }
   .projects-grid { grid-template-columns: 1fr 1fr; }
 
@@ -60,6 +61,8 @@
   .nav-links,
   .nav-right { display: none; }
   .nav-toggle { display: inline-flex; }
+  .projects { padding: 0.5rem 1.5rem 1rem; }
+  .projects-grid { grid-template-columns: 1fr; }
   .mobile-menu {
     display: block;
     position: absolute;
@@ -91,7 +94,6 @@
 /* Tablet small */
 @media (max-width: 768px) {
   .navbar { padding: 0 1.5rem; }
-
   .hero { padding: 0 1.5rem; }
   .hero-container { padding: calc(var(--nav-h) + 2.5rem) 0 3rem; }
   .hero-headline { font-size: clamp(1.85rem, 6vw, 2.6rem); }
