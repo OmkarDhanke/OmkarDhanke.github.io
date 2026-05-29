@@ -1,91 +1,140 @@
-    const PIR_SLIDES = [
-    {
-        src:   'assets/Dashboard/Executive_Overview.png',
-        alt:   'CloudFlow — Executive Overview',
-        file:  'Executive Overview',
-        page:  'Page 1 — Executive Overview'
-    },
-        {
-        src:   'assets/Dashboard/Classification.png',
-        alt:   'CloudFlow — Executive Overview',
-        file:  'Executive Overview',
-        page:  'Page 2 — Classification & Failure Modes'
-    },
-    {
-        src:   'assets/Dashboard/Risk_Concentration.png',
-        alt:   'CloudFlow — Risk Concentration Analysis',
-        file:  'Risk Concentration',
-        page:  'Page 3 — Risk Concentration Analysis'
-    },
-    {
-        src:   'assets/Dashboard/Operational_Exposure.png',
-        alt:   'CloudFlow — Operational Exposure',
-        file:  'Operational Exposure',
-        page:  'Page 4 — Operational Exposure'
-    },
-    {
-    src: 'assets/Dashboard/Monitoring_Control.png',
-    alt: 'CloudFlow — Monitoring & Regression Control',
-    file: 'Monitoring & Control',
-    page: 'Page 5 — Monitoring & Control'
-    }
-    ];
+const SLIDES = [
+  {
+    filename: 'revenue_analysis.sql',
+    badge: 'SQL · Power BI',
+    result1: 'Query returned 247 rows',
+    result2: '38 HIGH RISK flagged',
+    metricVal: '$18,348',
+    metricLabel: 'Leakage Identified',
+    repo: 'https://github.com/OmkarDhanke/Revenue-leakage-subscription-analytics',
+    code:
+`<span class="sql-comment">-- Revenue leakage by category</span>
+<span class="sql-keyword">WITH</span> leakage_cte <span class="sql-keyword">AS</span> (
+  <span class="sql-keyword">SELECT</span>
+    customer_id,
+    contract_type,
+    <span class="sql-func">SUM</span>(expected_revenue)
+      - <span class="sql-func">SUM</span>(actual_revenue)
+      <span class="sql-keyword">AS</span> leakage_amount
+  <span class="sql-keyword">FROM</span> billing_data
+  <span class="sql-keyword">WHERE</span> billing_status != <span class="sql-string">'PAID'</span>
+  <span class="sql-keyword">GROUP BY</span> <span class="sql-number">1</span>, <span class="sql-number">2</span>
+)
+<span class="sql-keyword">SELECT</span> *,
+  <span class="sql-keyword">CASE</span>
+    <span class="sql-keyword">WHEN</span> leakage_amount > <span class="sql-number">1000</span>
+    <span class="sql-keyword">THEN</span> <span class="sql-string">'HIGH RISK'</span>
+    <span class="sql-keyword">ELSE</span> <span class="sql-string">'MONITOR'</span>
+  <span class="sql-keyword">END</span> <span class="sql-keyword">AS</span> risk_flag
+<span class="sql-keyword">FROM</span> leakage_cte
+<span class="sql-keyword">ORDER BY</span> leakage_amount <span class="sql-keyword">DESC</span>;`
+  },
+  {
+    filename: 'support_forecast.py',
+    badge: 'Python · Power BI',
+    result1: '100,000 tickets analyzed',
+    result2: '10.58% SLA breach rate',
+    metricVal: '80 Agents',
+    metricLabel: 'Workload Mapped',
+    repo: 'https://github.com/OmkarDhanke/supportpulse-customer-support-load-forecasting',
+    code:
+`<span class="sql-comment"># SLA breach rate by priority tier</span>
+<span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd
 
-let pirCurrent = 0;
-let pirTimer   = null;
+df = pd.read_csv(<span class="sql-string">'tickets.csv'</span>)
+df[<span class="sql-string">'breach'</span>] = (
+  df[<span class="sql-string">'resolution_hrs'</span>]
+  > df[<span class="sql-string">'sla_target_hrs'</span>]
+)
 
-const pirImg       = document.getElementById('pirImg');
-const pirFilename  = document.getElementById('pirFilename');
-const pirCounter   = document.getElementById('pirCounter');
-const pirPageLabel = document.getElementById('pirPageLabel');
-const pirDots      = document.querySelectorAll('.pir-dot');
-const pirStage     = document.querySelector('.pir-stage');
+breach_rate = (
+  df.groupby(<span class="sql-string">'priority'</span>)[<span class="sql-string">'breach'</span>]
+    .mean()
+    .mul(<span class="sql-number">100</span>)
+    .round(<span class="sql-number">2</span>)
+)
 
-function pirApply(idx) {
-  const s = PIR_SLIDES[idx];
-  pirImg.src        = s.src;
-  pirImg.alt        = s.alt;
-  pirFilename.textContent  = s.file;
-  pirCounter.textContent   = `${idx + 1} / ${PIR_SLIDES.length}`;
-  pirPageLabel.textContent = s.page;
-  pirDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+<span class="sql-keyword">print</span>(breach_rate)`
+  },
+  {
+    filename: 'backlog_aging.xlsx',
+    badge: 'Excel · Power Query',
+    result1: '100K+ records cleaned',
+    result2: '90+ day delays flagged',
+    metricVal: '4-Page',
+    metricLabel: 'Excel Dashboard',
+    repo: 'https://github.com/OmkarDhanke/Operational-backlog-monitoring-system',
+    code:
+`<span class="sql-comment">// Dynamic aging bucket — LET formula</span>
+=<span class="sql-func">LET</span>(
+  age, <span class="sql-func">TODAY</span>() - [@OpenDate],
+  bucket, <span class="sql-func">IFS</span>(
+    age&lt;=<span class="sql-number">7</span>,  <span class="sql-string">"0–7 days"</span>,
+    age&lt;=<span class="sql-number">30</span>, <span class="sql-string">"8–30 days"</span>,
+    age&lt;=<span class="sql-number">90</span>, <span class="sql-string">"31–90 days"</span>,
+    <span class="sql-keyword">TRUE</span>,    <span class="sql-string">"90+ days"</span>
+  ),
+  bucket
+)`
+  }
+];
+
+let current = 0;
+let timer = null;
+
+const body     = document.getElementById('codeCardBody');
+const codeEl   = document.getElementById('codeCardContent');
+const filename = document.getElementById('codeCardFilename');
+const result1  = document.getElementById('codeCardResult1');
+const result2  = document.getElementById('codeCardResult2');
+const metricV  = document.getElementById('codeCardMetricVal');
+const metricL  = document.getElementById('codeCardMetricLabel');
+const badge    = document.getElementById('codeCardBadge');
+const dots     = document.querySelectorAll('.code-dot');
+const card     = document.getElementById('heroCodeCard');
+
+function applySlide(idx) {
+  const s = SLIDES[idx];
+  codeEl.innerHTML     = s.code;
+  filename.textContent = s.filename;
+  result1.textContent  = s.result1;
+  result2.textContent  = s.result2;
+  metricV.textContent  = s.metricVal;
+  metricL.textContent  = s.metricLabel;
+  badge.textContent    = s.badge;
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
 }
 
-function pirGoTo(idx) {
-  pirImg.classList.add('pir-exit');
+function goTo(idx, skipAnim) {
+  if (skipAnim) { applySlide(idx); return; }
+  body.classList.add('code-exit');
   setTimeout(() => {
-    pirCurrent = (idx + PIR_SLIDES.length) % PIR_SLIDES.length;
-    pirApply(pirCurrent);
-    pirImg.classList.remove('pir-exit');
-    pirImg.classList.add('pir-enter');
-    setTimeout(() => pirImg.classList.remove('pir-enter'), 400);
-  }, 250);
+    applySlide(idx);
+    body.classList.remove('code-exit');
+    body.classList.add('code-enter');
+    setTimeout(() => body.classList.remove('code-enter'), 400);
+  }, 280);
 }
 
-function pirNext() { pirGoTo(pirCurrent + 1); }
-function pirPrev() { pirGoTo(pirCurrent - 1); }
+function next() {
+  current = (current + 1) % SLIDES.length;
+  goTo(current);
+}
 
-function pirStart() { pirTimer = setInterval(pirNext, 4000); }
-function pirStop()  { clearInterval(pirTimer); }
+function startTimer() { timer = setInterval(next, 4500); }
+function stopTimer()  { clearInterval(timer); }
 
-document.getElementById('pirNext').addEventListener('click', () => { pirStop(); pirNext(); pirStart(); });
-document.getElementById('pirPrev').addEventListener('click', () => { pirStop(); pirPrev(); pirStart(); });
-
-pirDots.forEach(dot => {
+dots.forEach(dot => {
   dot.addEventListener('click', () => {
-    pirStop();
-    pirGoTo(+dot.dataset.idx);
-    pirStart();
+    stopTimer();
+    current = +dot.dataset.idx;
+    goTo(current);
+    startTimer();
   });
 });
 
-const pirCard = document.querySelector('.project-img-rotator');
+card.addEventListener('mouseenter', stopTimer);
+card.addEventListener('mouseleave', startTimer);
 
-if (pirCard) {
-  pirCard.addEventListener('mouseenter', pirStop);
-  pirCard.addEventListener('mouseleave', pirStart);
-}
-
-// Init
-pirApply(0);
-pirStart();
+goTo(0, true);
+startTimer();

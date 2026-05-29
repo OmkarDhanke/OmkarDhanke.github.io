@@ -150,7 +150,7 @@
 
         <div class="hero-stats reveal-group" data-aos="fade-up" data-aos-delay="400">
           <div class="stat reveal reveal-item">
-            <span class="stat-number countup">4+</span>
+            <span class="stat-number countup">3+</span>
             <span class="stat-label">End-to-End Projects</span>
           </div>
           <div class="stat-divider"></div>
@@ -211,7 +211,6 @@
             <span class="code-dot active" data-idx="0"></span>
             <span class="code-dot" data-idx="1"></span>
             <span class="code-dot" data-idx="2"></span>
-            <span class="code-dot" data-idx="3"></span>
           </div>
 
         </div>
@@ -352,73 +351,47 @@
         </p>
       </div>
 
-      <!-- PROJECT 1 — FEATURED -->
-      <div class="project-featured reveal glow-track panel-glow" data-aos="fade-up" data-aos-delay="150">
-        <div class="project-featured-left">
-          <div class="project-meta">
-            <span class="project-number">01</span>
-            <span class="project-tag">SaaS · FinOps · SQL · Python · Power BI</span>
+      <!-- PROJECTS SHOWCASE — rotating -->
+      <div class="project-showcase reveal glow-track panel-glow" id="projectShowcase">
+
+        <!-- Left: Text content -->
+        <div class="ps-left" id="psLeft">
+          <div class="ps-meta">
+            <span class="ps-number" id="psNumber">01</span>
+            <span class="ps-tag" id="psTag">SaaS · FinOps · SQL · Python · Power BI</span>
           </div>
-          <h3 class="project-title">Revenue Leakage Detection</h3>
-          <p class="project-desc">
-            Designed and validated analytical controls to detect, classify, and
-            monitor revenue leakage inside a simulated SaaS billing system.
-            Reconciled subscriptions, invoices, and payments across three
-            deterministic failure categories surfacing $18,348 in exposure
-            and identifying a 90% concentration in operational non-collection
-            rather than system failures.
-          </p>
-          <ul class="project-outcomes">
-            <li>
-              <span class="outcome-dot"></span>
-              $18,348 in simulated leakage exposure identified across FY2024
-            </li>
-            <li>
-              <span class="outcome-dot"></span>
-              3 leakage categories: Zombie Accounts, Partial Payments, Ghost Subscribers
-            </li>
-            <li>
-              <span class="outcome-dot"></span>
-              5-page executive monitoring dashboard with regression detection
-            </li>
-            <li>
-              <span class="outcome-dot"></span>
-              Enterprise plans flagged as 70.8% of total exposure concentrated risk
-            </li>
-          </ul>
-          <div class="project-actions">
-            <a href="https://github.com/OmkarDhanke/Revenue-leakage-subscription-analytics" target="_blank"
-              class="btn-primary">View on GitHub</a>
+          <h3 class="ps-title" id="psTitle">Revenue Leakage Detection</h3>
+          <p class="ps-desc" id="psDesc"></p>
+          <ul class="ps-outcomes" id="psOutcomes"></ul>
+          <div class="ps-actions">
+            <a href="#" class="btn-primary" id="psGithubLink" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
         </div>
 
-        <div class="project-featured-right">
-          <div class="project-img-rotator glow-track panel-glow">
+        <!-- Right: Image panel -->
+        <div class="ps-right">
+          <div class="ps-img-panel">
 
             <div class="pir-header">
               <div class="card-dots">
                 <span></span><span></span><span></span>
               </div>
-              <span class="pir-filename" id="pirFilename">Executive Overview</span>
-              <span class="pir-counter" id="pirCounter">1 / 4</span>
+              <span class="pir-filename" id="psImgLabel">Executive Overview</span>
+              <span class="pir-counter" id="psImgCounter">1 / 5</span>
             </div>
 
             <div class="pir-stage">
-              <img
-                src="assets/Dashboard/Executive_Overview.png"
-                alt="CloudFlow dashboard — Executive Overview"
-                class="pir-img"
-                id="pirImg"
-              />
+              <img src="assets/Dashboard/Executive_Overview.png"
+                  alt="Project dashboard"
+                  class="pir-img"
+                  id="psImg" />
               <div class="pir-overlay"></div>
-
-              <!-- Prev / Next arrows -->
-              <button class="pir-arrow pir-arrow--prev" id="pirPrev" aria-label="Previous screenshot">
+              <button class="pir-arrow pir-arrow--prev" id="psImgPrev" aria-label="Previous image">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="15 18 9 12 15 6"/>
                 </svg>
               </button>
-              <button class="pir-arrow pir-arrow--next" id="pirNext" aria-label="Next screenshot">
+              <button class="pir-arrow pir-arrow--next" id="psImgNext" aria-label="Next image">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <polyline points="9 18 15 12 9 6"/>
                 </svg>
@@ -426,120 +399,34 @@
             </div>
 
             <div class="pir-footer">
-              <div class="pir-dots">
-                <span class="pir-dot active" data-idx="0"></span>
-                <span class="pir-dot" data-idx="1"></span>
-                <span class="pir-dot" data-idx="2"></span>
-                <span class="pir-dot" data-idx="3"></span>
-                <span class="pir-dot" data-idx="4"></span>
-              </div>
-              <span class="pir-page-label" id="pirPageLabel">Page 1 — Executive Overview</span>
+              <div class="pir-dots" id="psImgDots"></div>
+              <span class="pir-page-label" id="psPageLabel">Page 1 — Executive Overview</span>
             </div>
 
           </div>
+        </div>
+
+        <!-- Bottom: project nav -->
+        <div class="ps-nav">
+          <button class="ps-arrow" id="psPrev" aria-label="Previous project">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <div class="ps-dots">
+            <span class="ps-dot active" data-idx="0"></span>
+            <span class="ps-dot" data-idx="1"></span>
+            <span class="ps-dot" data-idx="2"></span>
+          </div>
+          <button class="ps-arrow" id="psNext" aria-label="Next project">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
         </div>
 
       </div>
 
-      <!-- PROJECTS GRID — 3 cards -->
-      <div class="projects-grid reveal-group">
-
-        <!-- PROJECT 2 -->
-        <div class="project-card reveal reveal-item glow-track" data-aos="fade-up" data-aos-delay="100">
-          <div class="pc-top">
-            <div class="pc-meta">
-              <span class="project-number">02</span>
-              <span class="project-tag">Customer Ops · Python · Power BI</span>
-            </div>
-            <h3 class="pc-title">Customer Support Operations Intelligence</h3>
-            <p class="pc-desc">
-              Built an end-to-end operational analytics system across 100,000
-              support tickets to surface demand patterns, workload imbalance,
-              and SLA breach risk — delivered as a five-page Power BI
-              monitoring dashboard for support operations leaders.
-            </p>
-          </div>
-          <ul class="pc-outcomes">
-            <li><span class="outcome-dot"></span>100K tickets · 80 agents · 6 countries analyzed</li>
-            <li><span class="outcome-dot"></span>10.58% SLA breach rate identified and mapped</li>
-            <li><span class="outcome-dot"></span>Demand peaks isolated to mid-week business hours</li>
-          </ul>
-          <div class="pc-footer">
-            <div class="pc-tools">
-              <span class="tool-tag">Python</span>
-              <span class="tool-tag">Power BI</span>
-              <span class="tool-tag">Pandas</span>
-            </div>
-            <a href="https://github.com/OmkarDhanke/supportpulse-customer-support-load-forecasting" target="_blank"
-              class="pc-link">View Project</a>
-          </div>
-        </div>
-
-
-        <!-- PROJECT 3 -->
-        <div class="project-card reveal reveal-item glow-track" data-aos="fade-up" data-aos-delay="200">
-          <div class="pc-top">
-            <div class="pc-meta">
-              <span class="project-number">03</span>
-              <span class="project-tag">Operations · Excel · Power Query</span>
-            </div>
-            <h3 class="pc-title">Operational Backlog Monitoring & Risk Analysis</h3>
-            <p class="pc-desc">
-              Transformed 100,000+ NYC 311 service records into a four-page
-              navigable Excel reporting system — demonstrating that structured
-              data modeling and careful metric design can support operational
-              decisions without external BI tools.
-            </p>
-          </div>
-          <ul class="pc-outcomes">
-            <li><span class="outcome-dot"></span>100K+ records cleaned via Power Query</li>
-            <li><span class="outcome-dot"></span>Aging bucket analysis flagged 90+ day extreme delays</li>
-            <li><span class="outcome-dot"></span>Four-page navigable dashboard — Excel only</li>
-          </ul>
-          <div class="pc-footer">
-            <div class="pc-tools">
-              <span class="tool-tag">Excel</span>
-              <span class="tool-tag">Power Query</span>
-              <span class="tool-tag">PivotTables</span>
-            </div>
-            <a href="https://github.com/OmkarDhanke/Operational-backlog-monitoring-system" target="_blank"
-              class="pc-link">View Project</a>
-          </div>
-        </div>
-
-        <!-- PROJECT 4 -->
-        <div class="project-card reveal reveal-item glow-track" data-aos="fade-up" data-aos-delay="300">
-          <div class="pc-top">
-            <div class="pc-meta">
-              <span class="project-number">04</span>
-              <span class="project-tag">Telecom · SQL · Churn Analytics</span>
-            </div>
-            <h3 class="pc-title">Telco Customer Churn Analysis</h3>
-            <p class="pc-desc">
-              Conducted end-to-end SQL churn analysis on a normalized telecom
-              database — from schema design and data cleaning through to
-              advanced segmentation queries and BI-ready views built for
-              retention strategy support.
-            </p>
-          </div>
-          <ul class="pc-outcomes">
-            <li><span class="outcome-dot"></span>43% churn concentration in month-to-month contracts</li>
-            <li><span class="outcome-dot"></span>Top 10% high-value customers segmented for retention</li>
-            <li><span class="outcome-dot"></span>Advanced SQL: CTEs, window functions, BI-ready views</li>
-          </ul>
-          <div class="pc-footer">
-            <div class="pc-tools">
-              <span class="tool-tag">SQL</span>
-              <span class="tool-tag">CTEs</span>
-              <span class="tool-tag">Window Functions</span>
-            </div>
-            <a href="https://github.com/OmkarDhanke/Telco-customer-churn-sql-project" target="_blank"
-              class="pc-link">View Project</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
   </section>
 
   <!--SKILL SECTION-->
@@ -903,6 +790,7 @@
   <script src="js/navbar.js"></script>
   <script src="js/code-rotator.js"></script>
   <script src="js/project-rotator.js"></script>
+  <script src="js/project-showcase.js"></script>
 
 </body>
 

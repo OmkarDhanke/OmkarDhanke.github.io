@@ -1,5 +1,5 @@
 .about {
-  padding: 1rem 3rem 7rem;
+  padding: 4rem 3rem 7rem;
   scroll-margin-top: var(--nav-h);
   border-top: 0px solid var(--border);
 }
@@ -38,7 +38,7 @@
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 5rem;
-  align-items: start;
+  align-items: center;
 }
 
 /* LEFT */
@@ -93,6 +93,7 @@
   gap: 0.6rem;
   position: sticky;
   top: calc(var(--nav-h) + 2rem);
+  align-self: center;
 }
 
 /* Shared card style */
