@@ -582,12 +582,19 @@
 }
 
 /* Responsive */
+/* Responsive */
 @media (max-width: 1024px) {
   .project-showcase {
     grid-template-columns: 1fr;
     max-height: none;
     overflow: visible;
-    gap: 2rem;
+    gap: 1.5rem;
+    height: auto;
+  }
+
+  .ps-left {
+    height: auto;
+    overflow: visible;
   }
 
   .ps-right {
@@ -600,16 +607,16 @@
   }
 
   .pir-stage {
-    aspect-ratio: unset;
-    max-height: none;
-    min-height: auto;
     height: auto;
+    min-height: unset;
+    max-height: unset;
+    aspect-ratio: unset;
   }
 
   .pir-img {
     width: 100%;
     height: auto;
-    max-height: none;
+    max-height: unset;
     object-fit: contain;
     object-position: top center;
   }
@@ -617,11 +624,7 @@
 
 @media (max-width: 768px) {
   .project-showcase {
-    gap: 2.2rem;
+    gap: 1.5rem;
     padding: 1.25rem;
-  }
-
-  .pir-stage {
-    min-height: 240px;
   }
 }
