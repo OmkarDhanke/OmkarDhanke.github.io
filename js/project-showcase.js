@@ -3,7 +3,7 @@ const PS_PROJECTS = [
     number: '01',
     tag: 'SaaS · FinOps · SQL · Python · Power BI',
     title: 'Revenue Leakage Detection',
-    desc: 'Designed and validated analytical controls to detect, classify, and monitor revenue leakage inside a simulated SaaS billing system. Reconciled subscriptions, invoices, and payments across three deterministic failure categories surfacing $18,348 in exposure.',
+    desc: 'Designed and validated analytical controls to detect, classify, and monitor revenue leakage inside a simulated SaaS billing system. Reconciled subscriptions, invoices, and payments across multiple billing entities, transforming transaction-level inconsistencies into actionable revenue integrity insights through SQL, Python, and Power BI.',
     outcomes: [
       '$18,348 in simulated leakage exposure identified across FY2024',
       '3 leakage categories: Zombie Accounts, Partial Payments, Ghost Subscribers',
@@ -23,11 +23,12 @@ const PS_PROJECTS = [
     number: '02',
     tag: 'Customer Ops · Python · Power BI',
     title: 'Customer Support Operations Intelligence',
-    desc: 'Built an end-to-end operational analytics system across 100,000 support tickets to surface demand patterns, workload imbalance, and SLA breach risk — delivered as a five-page Power BI monitoring dashboard for support operations leaders.',
+    desc: 'Built an end-to-end operational analytics system to monitor customer support demand, workload distribution, service efficiency, and SLA risk exposure. Analyzed 100,000 support tickets across multiple teams and regions, transforming raw operational data into actionable performance insights through Python and Power BI dashboards. Based on findings from the project documentation.',
     outcomes: [
-      '100K tickets · 80 agents · 6 countries analyzed',
-      '10.58% SLA breach rate identified and mapped',
-      'Demand peaks isolated to mid-week business hours'
+      '100,000 support tickets analyzed across 80 agents and 6 countries',
+      '5-page operational intelligence dashboard covering demand, workload, and SLA risk',
+      '10.58% SLA breach rate monitored through performance tracking analytics',
+      'Geographic demand and workload imbalance identified for resource planning'
     ],
     github: 'https://github.com/OmkarDhanke/supportpulse-customer-support-load-forecasting',
     images: [
@@ -42,11 +43,12 @@ const PS_PROJECTS = [
     number: '03',
     tag: 'Operations · Excel · Power Query',
     title: 'Operational Backlog Monitoring & Risk Analysis',
-    desc: 'Transformed 100,000+ NYC 311 service records into a four-page navigable Excel reporting system — demonstrating that structured data modeling and careful metric design can support operational decisions without external BI tools.',
+    desc: 'Transformed 100,000+ NYC 311 service records into a structured Excel reporting system designed to monitor operational performance, backlog aging, and resolution efficiency. Built a four-page navigable dashboard using Power Query, PivotTables, and data modeling techniques to support operational decision-making without external BI tools. Based on the project documentation.',
     outcomes: [
       '100K+ records cleaned via Power Query',
-      'Aging bucket analysis flagged 90+ day extreme delays',
-      'Four-page navigable dashboard — Excel only'
+      '4-page Excel reporting system with interactive navigation and filtering',
+      'Backlog aging and 90+ day delay exposure tracked across agencies',
+      'End-to-end data preparation, modeling, and dashboard design completed in Excel'
     ],
     github: 'https://github.com/OmkarDhanke/Operational-backlog-monitoring-system',
     images: [
