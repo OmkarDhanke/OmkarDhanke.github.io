@@ -23,7 +23,7 @@ const PS_PROJECTS = [
     number: '02',
     tag: 'Customer Ops · Python · Power BI',
     title: 'Customer Support Operations Intelligence',
-    desc: 'Built an end-to-end operational analytics system to monitor customer support demand, workload distribution, service efficiency, and SLA risk exposure. Analyzed 100,000 support tickets across multiple teams and regions, transforming raw operational data into actionable performance insights through Python and Power BI dashboards. Based on findings from the project documentation.',
+    desc: 'Built an end-to-end operational analytics system to monitor customer support demand, workload distribution, service efficiency, and SLA risk exposure. Analyzed 100,000 support tickets across teams and regions, transforming raw operational data into actionable performance insights through Python and Power BI dashboards.',
     outcomes: [
       '100,000 support tickets analyzed across 80 agents and 6 countries',
       '5-page operational intelligence dashboard covering demand, workload, and SLA risk',
