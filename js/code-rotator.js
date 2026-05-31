@@ -6,8 +6,6 @@ const SLIDES = [
     result2: '38 HIGH RISK flagged',
     metricVal: '$18,348',
     metricLabel: 'Leakage Identified',
-    trendLine: 'M4 23L22 23L40 19L58 20L76 14L94 12L116 7',
-    trendDot: { cx: '116', cy: '7' },
     code:
 `<span class="sql-comment">-- Revenue leakage by category</span>
 <span class="sql-keyword">WITH</span> leakage_cte <span class="sql-keyword">AS</span> (
@@ -37,8 +35,6 @@ const SLIDES = [
     result2: '10.58% SLA breach rate',
     metricVal: '80 Agents',
     metricLabel: 'Workload Mapped',
-    trendLine: 'M4 26L22 24L40 22L58 18L76 15L94 11L116 9',
-    trendDot: { cx: '116', cy: '9' },
     code:
 `<span class="sql-comment"># SLA breach rate by priority tier</span>
 <span class="sql-keyword">import</span> pandas <span class="sql-keyword">as</span> pd
@@ -65,47 +61,37 @@ breach_rate = (
     result2: '90+ day delays flagged',
     metricVal: '4-Page',
     metricLabel: 'Excel Dashboard',
-    trendLine: 'M4 28L22 26L40 24L58 22L76 19L94 16L116 12',
-    trendDot: { cx: '116', cy: '12' },
     code:
-`<span class="sql-comment">// Dynamic aging bucket — LET formula</span>
+`<span class="sql-comment">// Backlog risk score per request</span>
 =<span class="sql-func">LET</span>(
-  age, <span class="sql-func">TODAY</span>() - [@OpenDate],
-  bucket, <span class="sql-func">IFS</span>(
-    age&lt;=<span class="sql-number">7</span>,  <span class="sql-string">"0–7 days"</span>,
-    age&lt;=<span class="sql-number">30</span>, <span class="sql-string">"8–30 days"</span>,
-    age&lt;=<span class="sql-number">90</span>, <span class="sql-string">"31–90 days"</span>,
-    <span class="sql-keyword">TRUE</span>,    <span class="sql-string">"90+ days"</span>
+  age,     <span class="sql-func">TODAY</span>() - [@OpenDate],
+  volume,  [@RequestCount],
+  bucket,  <span class="sql-func">IFS</span>(
+    age &lt;= <span class="sql-number">7</span>,   <span class="sql-string">"0–7 days"</span>,
+    age &lt;= <span class="sql-number">30</span>,  <span class="sql-string">"8–30 days"</span>,
+    age &lt;= <span class="sql-number">90</span>,  <span class="sql-string">"31–90 days"</span>,
+    <span class="sql-keyword">TRUE</span>,       <span class="sql-string">"90+ days"</span>
   ),
-  bucket
+  weight,  <span class="sql-func">IFS</span>(
+    age &lt;= <span class="sql-number">7</span>,   <span class="sql-number">1</span>,
+    age &lt;= <span class="sql-number">30</span>,  <span class="sql-number">2</span>,
+    age &lt;= <span class="sql-number">90</span>,  <span class="sql-number">4</span>,
+    <span class="sql-keyword">TRUE</span>,       <span class="sql-number">8</span>
+  ),
+  risk_score, weight * volume,
+  flag,    <span class="sql-func">IF</span>(
+    risk_score > <span class="sql-number">500</span>,
+    <span class="sql-string">"🔴 HIGH RISK"</span>,
+    <span class="sql-func">IF</span>(
+      risk_score > <span class="sql-number">200</span>,
+      <span class="sql-string">"🟡 MONITOR"</span>,
+      <span class="sql-string">"🟢 NORMAL"</span>
+    )
+  ),
+  <span class="sql-func">CHOOSE</span>(<span class="sql-number">1</span>,
+    bucket, risk_score, flag
+  )
 )`
-  },
-  {
-    filename: 'churn_analysis.sql',
-    badge: 'SQL · CTEs',
-    result1: '43% churn in MTM contracts',
-    result2: 'Top 10% customers segmented',
-    metricVal: '7,043',
-    metricLabel: 'Customers Analyzed',
-    trendLine: 'M4 28L22 25L40 23L58 21L76 17L94 13L116 8',
-    trendDot: { cx: '116', cy: '8' },
-    code:
-`<span class="sql-comment">-- Churn rate by contract type</span>
-<span class="sql-keyword">SELECT</span>
-  contract_type,
-  <span class="sql-func">COUNT</span>(*) <span class="sql-keyword">AS</span> total,
-  <span class="sql-func">SUM</span>(<span class="sql-keyword">CASE WHEN</span>
-    churn = <span class="sql-string">'Yes'</span>
-    <span class="sql-keyword">THEN</span> <span class="sql-number">1</span> <span class="sql-keyword">ELSE</span> <span class="sql-number">0</span>
-  <span class="sql-keyword">END</span>) <span class="sql-keyword">AS</span> churned,
-  <span class="sql-func">ROUND</span>(<span class="sql-number">100.0</span> *
-    <span class="sql-func">SUM</span>(<span class="sql-keyword">CASE WHEN</span> churn=<span class="sql-string">'Yes'</span>
-    <span class="sql-keyword">THEN</span> <span class="sql-number">1</span> <span class="sql-keyword">ELSE</span> <span class="sql-number">0</span> <span class="sql-keyword">END</span>)
-    / <span class="sql-func">COUNT</span>(*), <span class="sql-number">1</span>)
-    <span class="sql-keyword">AS</span> churn_pct
-<span class="sql-keyword">FROM</span> telco_customers
-<span class="sql-keyword">GROUP BY</span> contract_type
-<span class="sql-keyword">ORDER BY</span> churn_pct <span class="sql-keyword">DESC</span>;`
   }
 ];
 
@@ -120,23 +106,18 @@ const result2  = document.getElementById('codeCardResult2');
 const metricV  = document.getElementById('codeCardMetricVal');
 const metricL  = document.getElementById('codeCardMetricLabel');
 const badge    = document.getElementById('codeCardBadge');
-const trendL   = document.getElementById('codeCardTrendLine');
-const trendD   = document.getElementById('codeCardTrendDot');
 const dots     = document.querySelectorAll('.code-dot');
 const card     = document.getElementById('heroCodeCard');
 
 function applySlide(idx) {
   const s = SLIDES[idx];
-  codeEl.innerHTML    = s.code;
+  codeEl.innerHTML     = s.code;
   filename.textContent = s.filename;
-  result1.textContent = s.result1;
-  result2.textContent = s.result2;
-  metricV.textContent = s.metricVal;
-  metricL.textContent = s.metricLabel;
-  badge.textContent   = s.badge;
-  trendL.setAttribute('d', s.trendLine);
-  trendD.setAttribute('cx', s.trendDot.cx);
-  trendD.setAttribute('cy', s.trendDot.cy);
+  result1.textContent  = s.result1;
+  result2.textContent  = s.result2;
+  metricV.textContent  = s.metricVal;
+  metricL.textContent  = s.metricLabel;
+  badge.textContent    = s.badge;
   dots.forEach((d, i) => d.classList.toggle('active', i === idx));
 }
 
@@ -156,10 +137,15 @@ function next() {
   goTo(current);
 }
 
-function startTimer() { timer = setInterval(next, 4500); }
-function stopTimer()  { clearInterval(timer); }
+function startTimer() {
+  clearInterval(timer);
+  timer = setInterval(next, 4500);
+}
+function stopTimer() {
+  clearInterval(timer);
+  timer = null;
+}
 
-// Dot click
 dots.forEach(dot => {
   dot.addEventListener('click', () => {
     stopTimer();
@@ -169,10 +155,8 @@ dots.forEach(dot => {
   });
 });
 
-// Pause on hover
 card.addEventListener('mouseenter', stopTimer);
 card.addEventListener('mouseleave', startTimer);
 
-// Init
 goTo(0, true);
 startTimer();
