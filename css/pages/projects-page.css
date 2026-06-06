@@ -1,0 +1,376 @@
+/* ============================================================
+   PROJECTS PAGE
+   Standalone catalog page — projects.html
+   ============================================================ */
+
+.proj-page-header {
+  padding: calc(var(--nav-h) + 2rem) 3rem 3rem;
+  scroll-margin-top: var(--nav-h);
+}
+
+.proj-page-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.proj-page-headline {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.proj-page-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Filter tabs ── */
+.proj-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0;
+}
+
+.proj-tab {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.proj-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.proj-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ── Catalog section ── */
+.proj-catalog {
+  padding: 2rem 3rem 5rem;
+}
+
+.proj-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+/* ── Project card ── */
+.proj-catalog-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.22s ease, transform 0.22s ease;
+}
+
+.proj-catalog-card:hover {
+  border-color: rgba(79,142,247,0.3);
+  transform: translateY(-4px);
+}
+
+/* Image wrapper */
+.pcc-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.pcc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.proj-catalog-card:hover .pcc-img {
+  transform: scale(1.03);
+}
+
+.pcc-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(10,10,15,0.6) 100%
+  );
+  pointer-events: none;
+}
+
+.pcc-tags {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.pcc-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(79,142,247,0.85);
+  color: #fff;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(4px);
+}
+
+/* Card body */
+.pcc-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.pcc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pcc-number {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.pcc-category {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.pcc-title {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.pcc-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.pcc-outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pcc-outcomes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.pcc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pcc-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pcc-btn {
+  font-size: 0.78rem;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+/* ── Empty card (research placeholder) ── */
+.proj-catalog-card--empty {
+  border-style: dashed;
+  min-height: 280px;
+  justify-content: center;
+}
+
+.pcc-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.pcc-empty-icon {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.pcc-empty-title {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.pcc-empty-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  max-width: 220px;
+  line-height: 1.6;
+}
+
+/* ── Empty state message ── */
+.proj-empty-state {
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ── Footer ── */
+.proj-page-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 3rem;
+}
+
+/* ── Hidden cards (filter) ── */
+.proj-catalog-card.hidden {
+  display: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .proj-page-header {
+    padding: calc(var(--nav-h) + 3rem) 1.5rem 2rem;
+  }
+
+  .proj-catalog {
+    padding: 1.5rem 1.5rem 4rem;
+  }
+
+  .proj-catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proj-page-footer {
+    padding: 1.5rem;
+  }
+}
+
+/* ── Code panel card (no image) ── */
+.pcc-code-panel {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.pcc-code-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1.1rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.pcc-code-body {
+  padding: 1.1rem 1.25rem;
+  overflow: hidden;
+}
+
+.pcc-code-body pre {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.75;
+  color: #c9d1d9;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.pcc-code-footer {
+  display: flex;
+  gap: 2rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface-2);
+  border-top: 1px solid var(--border);
+}
+
+.pcc-code-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.pcc-code-val {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.pcc-code-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.nav-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  white-space: nowrap;
+  padding-right: 1rem;
+  border-right: 1px solid var(--border);
+  margin-right: 0.25rem;
+}
+
+.nav-back-link:hover {
+  color: var(--accent);
+}
