@@ -23,7 +23,7 @@
 /* 4. Sections — one file per page section */
 @import 'sections/hero.css';
 @import 'sections/about.css';
-@import 'sections/projects.css';
+@import 'sections/projects.css?v=20260606-project-nav';
 @import 'sections/skills.css';
 @import 'sections/certifications.css';
 @import 'sections/contact.css';

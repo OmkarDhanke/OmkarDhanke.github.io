@@ -4,7 +4,7 @@
    ============================================================ */
 
 .proj-page-header {
-  padding: calc(var(--nav-h) + 2rem) 3rem 3rem;
+  padding: calc(var(--nav-h) + 2rem) 2rem 2rem;
   scroll-margin-top: var(--nav-h);
 }
 
@@ -270,7 +270,6 @@
 
 /* ── Footer ── */
 .proj-page-footer {
-  border-top: 1px solid var(--border);
   padding: 2rem 3rem;
 }
 
