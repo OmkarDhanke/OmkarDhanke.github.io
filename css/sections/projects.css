@@ -437,7 +437,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 1.0rem;
   transition: border-color var(--transition-med);
   overflow: hidden;
 }
