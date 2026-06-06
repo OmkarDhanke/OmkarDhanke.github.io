@@ -32,3 +32,5 @@
 /* 5. Utilities — animations, responsive (always last) */
 @import 'utilities/animations.css';
 @import 'utilities/responsive.css';
+
+@import 'pages/projects-page.css';

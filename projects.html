@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Omkar Dhanke — Full project catalog. Analytics projects organized by tool and technique." />
+  <title>Projects | Omkar Dhanke</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages/projects-page.css" />
+</head>
+
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/profile.png" class="nav-avatar" alt="Omkar Dhanke profile photo" />
+        Omkar<span class="accent-name">Dhanke.</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="index.html" class="nav-back-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Back to Portfolio
+        </a>
+        <a href="https://github.com/OmkarDhanke" target="_blank" rel="noreferrer" class="nav-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu-proj">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu-proj" aria-hidden="true">
+      <div class="mobile-menu-panel" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <a href="https://github.com/OmkarDhanke" target="_blank" rel="noreferrer" class="mobile-github">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- ============ PAGE HEADER ============ -->
+  <section class="proj-page-header">
+    <div class="proj-page-container">
+      <div class="section-label" data-aos="fade-up">
+        <span class="label-text">All Projects</span>
+      </div>
+      <h1 class="proj-page-headline" data-aos="fade-up" data-aos-delay="100">
+        Every project.<br />
+        <span class="accent">Every tool.</span>
+      </h1>
+      <p class="proj-page-sub" data-aos="fade-up" data-aos-delay="200">
+        A full catalog of analytics work organized by tool and technique.
+        Each project starts with a business question not a dataset.
+      </p>
+
+      <!-- Filter tabs -->
+      <div class="proj-filter-tabs" data-aos="fade-up" data-aos-delay="300">
+        <button class="proj-tab active" data-filter="all">All</button>
+        <button class="proj-tab" data-filter="sql">SQL</button>
+        <button class="proj-tab" data-filter="python">Python</button>
+        <button class="proj-tab" data-filter="excel">Excel</button>
+        <button class="proj-tab" data-filter="powerbi">Power BI</button>
+       <!-- <button class="proj-tab" data-filter="research">Research</button> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS GRID ============ -->
+  <section class="proj-catalog">
+    <div class="proj-page-container">
+
+      <div class="proj-catalog-grid" id="projCatalogGrid">
+
+        <!-- PROJECT 1 -->
+        <div class="proj-catalog-card glow-track" data-tags="sql python powerbi" data-aos="fade-up" data-aos-delay="100">
+          <div class="pcc-img-wrap">
+            <img src="assets/ProjectImg/Revenue_Leakage_Detection/Executive_Overview.png"
+                 alt="Revenue Leakage Detection dashboard"
+                 class="pcc-img" />
+            <div class="pcc-img-overlay"></div>
+          </div>
+          <div class="pcc-body">
+            <div class="pcc-meta">
+              <span class="pcc-number">01</span>
+              <span class="pcc-category">SaaS · FinOps</span>
+            </div>
+            <h3 class="pcc-title">Revenue Leakage Detection</h3>
+            <p class="pcc-desc">
+              Analytical controls to detect, classify, and monitor revenue leakage
+              inside a simulated SaaS billing system. Surfaced $18,348 in exposure
+              across three deterministic failure categories.
+            </p>
+            <ul class="pcc-outcomes">
+              <li><span class="outcome-dot"></span>$18,348 leakage exposure identified across FY2024</li>
+              <li><span class="outcome-dot"></span>3 categories: Zombie Accounts, Partial Payments, Ghost Subscribers</li>
+              <li><span class="outcome-dot"></span>5-page executive monitoring dashboard</li>
+            </ul>
+            <div class="pcc-footer">
+              <div class="pcc-tools">
+                <span class="tool-tag">SQL</span>
+                <span class="tool-tag">Python</span>
+                <span class="tool-tag">Power BI</span>
+              </div>
+              <a href="https://github.com/OmkarDhanke/Revenue-leakage-subscription-analytics"
+                 target="_blank" rel="noreferrer" class="btn-primary pcc-btn">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="proj-catalog-card glow-track" data-tags="python powerbi" data-aos="fade-up" data-aos-delay="200">
+          <div class="pcc-img-wrap">
+            <img src="assets/ProjectImg/Customer_Support_Operations_Intelligence/Operations_Overview.png"
+                 alt="Customer Support Operations Intelligence dashboard"
+                 class="pcc-img" />
+            <div class="pcc-img-overlay"></div>
+          </div>
+          <div class="pcc-body">
+            <div class="pcc-meta">
+              <span class="pcc-number">02</span>
+              <span class="pcc-category">Customer Ops</span>
+            </div>
+            <h3 class="pcc-title">Customer Support Operations Intelligence</h3>
+            <p class="pcc-desc">
+              End-to-end operational analytics across 100,000 support tickets
+              to surface demand patterns, workload imbalance, and SLA breach risk.
+            </p>
+            <ul class="pcc-outcomes">
+              <li><span class="outcome-dot"></span>100K tickets · 80 agents · 6 countries analyzed</li>
+              <li><span class="outcome-dot"></span>10.58% SLA breach rate identified and mapped</li>
+              <li><span class="outcome-dot"></span>Demand peaks isolated to mid-week business hours</li>
+            </ul>
+            <div class="pcc-footer">
+              <div class="pcc-tools">
+                <span class="tool-tag">Python</span>
+                <span class="tool-tag">Power BI</span>
+                <span class="tool-tag">Pandas</span>
+              </div>
+              <a href="https://github.com/OmkarDhanke/supportpulse-customer-support-load-forecasting"
+                 target="_blank" rel="noreferrer" class="btn-primary pcc-btn">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="proj-catalog-card glow-track" data-tags="excel" data-aos="fade-up" data-aos-delay="300">
+          <div class="pcc-img-wrap">
+            <img src="assets/ProjectImg/Operational_Backlog_Monitoring/OperationalOverview.png"
+                 alt="Operational Backlog Monitoring dashboard"
+                 class="pcc-img" />
+            <div class="pcc-img-overlay"></div>
+          </div>
+          <div class="pcc-body">
+            <div class="pcc-meta">
+              <span class="pcc-number">03</span>
+              <span class="pcc-category">Operations</span>
+            </div>
+            <h3 class="pcc-title">Operational Backlog Monitoring & Risk Analysis</h3>
+            <p class="pcc-desc">
+              Transformed 100,000+ NYC 311 service records into a four-page
+              navigable Excel reporting system for operational decision support.
+            </p>
+            <ul class="pcc-outcomes">
+              <li><span class="outcome-dot"></span>100K+ records cleaned via Power Query</li>
+              <li><span class="outcome-dot"></span>Aging bucket analysis flagged 90+ day extreme delays</li>
+              <li><span class="outcome-dot"></span>Four-page navigable dashboard — Excel only</li>
+            </ul>
+            <div class="pcc-footer">
+              <div class="pcc-tools">
+                <span class="tool-tag">Excel</span>
+                <span class="tool-tag">Power Query</span>
+                <span class="tool-tag">PivotTables</span>
+              </div>
+              <a href="https://github.com/OmkarDhanke/Operational-backlog-monitoring-system"
+                 target="_blank" rel="noreferrer" class="btn-primary pcc-btn">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 4 — Telco Churn -->
+        <div class="proj-catalog-card glow-track" data-tags="sql" data-aos="fade-up" data-aos-delay="400">
+          <div class="pcc-img-wrap">
+            <img src="assets/ProjectImg/Telcom/Telcom.png"
+                alt="Telco Customer Churn Analysis"
+                class="pcc-img" />
+            <div class="pcc-img-overlay"></div>
+          </div>
+          <div class="pcc-body">
+            <div class="pcc-meta">
+              <span class="pcc-number">04</span>
+              <span class="pcc-category">Telecom · Churn Analytics</span>
+            </div>
+            <h3 class="pcc-title">Telco Customer Churn Analysis</h3>
+            <p class="pcc-desc">
+              End-to-end SQL churn analysis on a normalized telecom database — from
+              schema design and data cleaning through to advanced segmentation queries
+              and BI-ready views built for retention strategy support.
+            </p>
+            <ul class="pcc-outcomes">
+              <li><span class="outcome-dot"></span>43% churn concentration in month-to-month contracts</li>
+              <li><span class="outcome-dot"></span>Top 10% high-value customers segmented via window functions</li>
+              <li><span class="outcome-dot"></span>Fiber optic users identified as highest churn risk segment</li>
+            </ul>
+            <div class="pcc-footer">
+              <div class="pcc-tools">
+                <span class="tool-tag">SQL</span>
+                <span class="tool-tag">MySQL</span>
+                <span class="tool-tag">Window Functions</span>
+              </div>
+              <a href="https://github.com/OmkarDhanke/Telco-customer-churn-sql-project"
+                target="_blank" rel="noreferrer" class="btn-primary pcc-btn">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 5 — Titanic Survival Analysis -->
+        <div class="proj-catalog-card glow-track" data-tags="powerbi" data-aos="fade-up" data-aos-delay="500">
+          <div class="pcc-img-wrap">
+            <img src="assets/ProjectImg/Titanic/Crisis_Decisions.png"
+                alt="Titanic Survival Analysis dashboard"
+                class="pcc-img" />
+            <div class="pcc-img-overlay"></div>
+          </div>
+          <div class="pcc-body">
+            <div class="pcc-meta">
+              <span class="pcc-number">05</span>
+              <span class="pcc-category">Exploratory Analysis · Power BI</span>
+            </div>
+            <h3 class="pcc-title">Survival Outcome Analysis — Titanic</h3>
+            <p class="pcc-desc">
+              Three-page Power BI dashboard exploring survival patterns across gender,
+              age, passenger class, fare amount, and family size using the Titanic
+              dataset. Built around six analytical questions with interactive filtering
+              and DAX-driven KPIs.
+            </p>
+            <ul class="pcc-outcomes">
+              <li><span class="outcome-dot"></span>Female passengers survived at more than 2x the rate of male passengers</li>
+              <li><span class="outcome-dot"></span>First-class passengers showed considerably higher survival rates</li>
+              <li><span class="outcome-dot"></span>Fare amount and family size both correlated with survival outcomes</li>
+            </ul>
+            <div class="pcc-footer">
+              <div class="pcc-tools">
+                <span class="tool-tag">Power BI</span>
+                <span class="tool-tag">DAX</span>
+                <span class="tool-tag">Power Query</span>
+              </div>
+              <a href="https://github.com/OmkarDhanke/titanic-survival-drivers-analysis"
+                target="_blank" rel="noreferrer" class="btn-primary pcc-btn">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESEARCH PLACEHOLDER 
+        <div class="proj-catalog-card proj-catalog-card--empty glow-track" data-tags="research" data-aos="fade-up" data-aos-delay="400">
+          <div class="pcc-empty">
+            <div class="pcc-empty-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+            </div>
+            <p class="pcc-empty-title">Research Papers</p>
+            <p class="pcc-empty-desc">Coming soon — academic work and research publications will appear here.</p>
+          </div>
+        </div> -->
+
+      </div>
+
+      <!-- Empty state -->
+      <div class="proj-empty-state" id="projEmptyState" style="display:none;">
+        <p>No projects in this category yet. Check back soon.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="proj-page-footer">
+    <div class="proj-page-container">
+      <div class="site-footer">
+        <p>Built by Omkar Dhanke · 2026</p>
+        <p>Designed & Developed with HTML, CSS & JavaScript · Deployed on GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/aos-init.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/projects-filter.js"></script>
+
+</body>
+</html>
