@@ -1,7 +1,10 @@
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+
 .about {
-  padding: 4rem 3rem 7rem;
+  padding: 4rem 3rem 4rem;
   scroll-margin-top: var(--nav-h);
-  border-top: 0px solid var(--border);
 }
 
 .about-container {
@@ -9,36 +12,13 @@
   margin: 0 auto;
 }
 
-/* Section label — reusable pattern */
-.section-label {
-  display: flex;
-  align-items: center;
-  gap: 1rem;    
-  margin-bottom: 1.5rem;
-}
-
-.label-line {
-  width: 32px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-.label-text {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-/* Two column grid */
+/* Grid */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 5rem;
-  align-items: center;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 1rem;
 }
 
 /* LEFT */
@@ -82,37 +62,33 @@
   transition: opacity 0.2s;
 }
 
-.about-link:hover {
-  opacity: 0.7;
-}
+.about-link:hover { opacity: 0.7; }
 
 /* RIGHT */
 .about-right {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  position: sticky;
-  top: calc(var(--nav-h) + 2rem);
-  align-self: center;
+  gap: 1rem;
+  overflow: visible;
 }
 
-/* Shared card style */
+/* Shared card */
 .facts-card,
 .currently-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.1rem 1.4rem;
+  padding: 1rem 1.25rem;
 }
 
 .facts-title {
   font-family: var(--font-head);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 1.0rem;
+  margin-bottom: 1rem;
 }
 
 /* Facts list */
@@ -120,20 +96,20 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.6rem;
 }
 
 .facts-list li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.4;
 }
 
 .fact-icon {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
   margin-top: 0.05rem;
 }
@@ -143,14 +119,14 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 .currently-list li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
 }
 
@@ -165,3 +141,118 @@
 .curr-dot--green  { background: #28c840; }
 .curr-dot--yellow { background: #febc2e; }
 .curr-dot--purple { background: #bd93f9; }
+
+/* Experience card */
+.exp-about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.22s ease;
+}
+
+.exp-about-card:hover {
+  border-color: rgba(79,142,247,0.3);
+}
+
+.exp-about-role-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.exp-about-company-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.exp-about-company {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.exp-about-via {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.exp-about-duration {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.exp-about-title {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.exp-about-location {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: -0.25rem;
+}
+
+.exp-about-outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.exp-about-outcomes li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.exp-about-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-right {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 3rem 1.5rem 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 2rem 1.25rem 2rem;
+  }
+
+  .about-headline {
+    font-size: 1.4rem;
+  }
+}
