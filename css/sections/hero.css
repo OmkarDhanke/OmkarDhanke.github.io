@@ -118,6 +118,15 @@
   animation-delay: 1800ms;
 }
 
+@media (max-width: 768px) {
+
+    .hero-line {
+        white-space: normal;
+        width: 100%;
+    }
+
+}
+
 @keyframes hero-line-reveal {
   0% {
     opacity: 0;
