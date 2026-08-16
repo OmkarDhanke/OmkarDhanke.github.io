@@ -27,7 +27,6 @@
 @import 'sections/skills.css';
 @import 'sections/certifications.css';
 @import 'sections/contact.css';
-@import 'sections/experience.css';
 
 /* 5. Utilities — animations, responsive (always last) */
 @import 'utilities/animations.css';
