@@ -1,37 +1,31 @@
 /* ============================================================
-   ANIMATIONS
-   All keyframes and animation utilities in one place.
+   ANIMATIONS v2
+   Motion tokens, reveal system, glow effects, keyframes.
    ============================================================ */
 
 @keyframes pulse {
-  0%, 100% { opacity: 1;   transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(1.4); }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.05); }
 }
 
-/* Applied to hero tag dot and contact status dot */
 .hero-tag-dot,
-.status-dot {
-  animation: pulse 2.4s ease-in-out infinite;
-}
+.status-dot { animation: pulse 2.5s ease-in-out infinite; }
 
 /* ============================================================
    MOTION TOKENS + ACCESSIBILITY
-   Preserves existing visual identity and adds shared motion vars.
    ============================================================ */
 
 :root {
-  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --motion-ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
-  --motion-fast: 180ms;
-  --motion-med: 420ms;
-  --motion-slow: 900ms;
-  --glow-accent-soft: rgba(79, 142, 247, 0.14);
-  --glow-accent-faint: rgba(79, 142, 247, 0.08);
+  --motion-ease:     var(--ease-out);
+  --motion-ease-soft: var(--ease-soft);
+  --motion-fast:     var(--motion-fast);
+  --motion-med:      var(--motion-med);
+  --motion-slow:     var(--motion-slow);
+  --glow-accent-soft:  rgba(79, 142, 247, 0.12);
+  --glow-accent-faint: rgba(79, 142, 247, 0.06);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   position: relative;
@@ -39,10 +33,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
+  html { scroll-behavior: auto; }
   *,
   *::before,
   *::after {
@@ -50,20 +41,12 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-
-  .reveal {
-    opacity: 0;
-    transform: translate3d(0, 24px, 0) scale(0.97);
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
+  .reveal { opacity: 0; transform: translate3d(0, 24px, 0) scale(0.97); }
+  .reveal.is-visible { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
 }
 
 /* ============================================================
    AMBIENT GRID BACKGROUND
-   Extremely low-contrast depth layer.
    ============================================================ */
 
 body::before {
@@ -72,28 +55,27 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.05;
+  opacity: 0.04;
   background-image:
-    linear-gradient(rgba(79, 142, 247, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79, 142, 247, 0.05) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.95), transparent 92%);
-  animation: grid-drift 28s linear infinite;
+    linear-gradient(rgba(79, 142, 247, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 142, 247, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.95), transparent 90%);
+  animation: grid-drift 30s linear infinite;
 }
 
 /* ============================================================
    SCROLL REVEAL SYSTEM
-   One-time reveal for section labels, cards, panels, and metrics.
    ============================================================ */
 
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 20px, 0) scale(0.985);
-  filter: blur(6px);
+  transform: translate3d(0, 24px, 0) scale(0.985);
+  filter: blur(8px);
   transition:
-    opacity 560ms var(--motion-ease),
-    transform 560ms var(--motion-ease),
-    filter 560ms var(--motion-ease);
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out),
+    filter 600ms var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: transform, opacity;
 }
@@ -104,25 +86,17 @@ body::before {
   filter: blur(0);
 }
 
-.reveal-group > .reveal-item {
-  --reveal-delay: 0ms;
-}
+.reveal-group > .reveal-item { --reveal-delay: 0ms; }
 
-/* ============================================================
-   DIRECTIONAL REVEALS
-   Narrative content enters horizontally for pacing contrast.
-   ============================================================ */
-
+/* Directional reveals */
 .reveal-left {
   opacity: 0;
-  transform: translate3d(-22px, 0, 0);
-  filter: blur(4px);
-
+  transform: translate3d(-30px, 0, 0);
+  filter: blur(6px);
   transition:
-    opacity 560ms var(--motion-ease),
-    transform 560ms var(--motion-ease),
-    filter 560ms var(--motion-ease);
-
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out),
+    filter 600ms var(--ease-out);
   will-change: transform, opacity;
 }
 
@@ -132,9 +106,25 @@ body::before {
   filter: blur(0);
 }
 
+.reveal-right {
+  opacity: 0;
+  transform: translate3d(30px, 0, 0);
+  filter: blur(6px);
+  transition:
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out),
+    filter 600ms var(--ease-out);
+  will-change: transform, opacity;
+}
+
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
 /* ============================================================
    MOUSE FOLLOW GLOW
-   Soft cursor glow for premium card surfaces.
    ============================================================ */
 
 .glow-track {
@@ -143,237 +133,58 @@ body::before {
   isolation: isolate;
 }
 
-.glow-track::after {
-  content: none;
+.glow-track::after { content: none; }
+.glow-track > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   HOVER ELEVATION
+   ============================================================ */
+
+.elevate {
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
 }
 
-.glow-track > * {
-  position: relative;
-  z-index: 1;
+@media (hover: hover) and (pointer: fine) {
+  .elevate:hover {
+    transform: translate3d(0, -6px, 0);
+    border-color: rgba(79, 142, 247, 0.3);
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.35),
+      0 0 0 1px rgba(79, 142, 247, 0.06) inset;
+  }
+}
+
+.elevate-sm:hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: var(--shadow-md);
 }
 
 /* ============================================================
-   PREMIUM HOVER ELEVATION
-   Restrained transform, border glow, and shadow polish.
+   TABULAR NUMBERS
    ============================================================ */
 
 .countup,
 .stat-number,
 .metric-value,
-.vf-value {
-  font-variant-numeric: tabular-nums;
-}
-
-.hero-card,
-.project-featured,
-.project-card,
-.project-visual,
-.skill-card,
-.facts-card,
-.currently-card,
-.contact-card,
-.contact-link,
-.cert-card,
-.pill,
-.card-badge,
-.interest-tag {
-  transition:
-    transform 220ms var(--motion-ease-soft),
-    border-color 220ms var(--motion-ease-soft),
-    box-shadow 220ms var(--motion-ease-soft),
-    background-color 220ms var(--motion-ease-soft);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .hero-card:hover,
-  .project-featured:hover,
-  .project-card:hover,
-  .project-visual:hover,
-  .skill-card:hover,
-  .facts-card:hover,
-  .currently-card:hover,
-  .contact-card:hover,
-  .cert-card:hover {
-    transform: translate3d(0, -4px, 0);
-    border-color: rgba(79, 142, 247, 0.28);
-    box-shadow:
-      0 14px 32px rgba(0, 0, 0, 0.28),
-      0 0 0 1px rgba(79, 142, 247, 0.08) inset;
-  }
-
-  .contact-link:hover {
-    transform: translate3d(4px, -2px, 0);
-    border-color: rgba(79, 142, 247, 0.28);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
-  }
-
-  .pill:hover,
-  .card-badge:hover,
-  .interest-tag:hover {
-    transform: translate3d(0, -2px, 0);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
-  }
-}
-
-/* ============================================================
-   FEATURED PANEL GLOW
-   Slow ambient sheen for hero intelligence and featured project.
-   ============================================================ */
-
-.panel-glow {
-  position: relative;
-}
-
-.panel-glow::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid rgba(79, 142, 247, 0.08);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.panel-glow::after {
-  content: '';
-  position: absolute;
-  inset: auto 18% -18% 18%;
-  height: 40%;
-  background: radial-gradient(circle at 50% 0%, rgba(79, 142, 247, 0.14), transparent 68%);
-  opacity: 0.28;
-  filter: blur(14px);
-  transform: translate3d(-8%, 0, 0);
-  animation: panel-sheen 11s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ============================================================
-   KPI + CHART MOTION
-   Sparkline draw, point pulse, and metric polish.
-   ============================================================ */
-
-.card-footer,
-.visual-footer {
-  gap: 1rem;
-}
-
-.visual-footer {
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.mini-trend {
-  width: 120px;
-  height: 32px;
-  flex: 0 0 auto;
-  opacity: 0.9;
-}
-
-.mini-trend--wide {
-  width: 140px;
-}
-
-.mini-trend-grid {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 1;
-}
-
-.mini-trend-line {
-  fill: none;
-  stroke: rgba(79, 142, 247, 0.92);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 160;
-  stroke-dashoffset: 160;
-}
-
-.mini-trend-point {
-  fill: #7eaef9;
-  opacity: 0;
-  transform-origin: center;
-}
-
-.chart-panel.is-visible .mini-trend-line {
-  animation: trend-draw 1.3s var(--motion-ease) 0.18s forwards;
-}
-
-.chart-panel.is-visible .mini-trend-point {
-  animation:
-    trend-point 0.7s var(--motion-ease) 0.8s forwards,
-    kpi-pulse 2.4s ease-in-out 1.6s infinite;
-}
-
-.chart-panel.is-visible .result-dot,
-.chart-panel.is-visible .status-dot {
-  animation: kpi-pulse 2.2s ease-in-out infinite;
-}
-
-/* ============================================================
-   METRIC EMPHASIS
-   Soft accent pulse after numeric completion.
-   ============================================================ */
-
-@keyframes stat-highlight {
-  0% {
-    color: var(--text-muted);
-    text-shadow: none;
-  }
-
-  50% {
-    color: var(--accent);
-    text-shadow:
-      0 0 10px rgba(79, 142, 247, 0.22),
-      0 0 18px rgba(79, 142, 247, 0.08);
-  }
-
-  100% {
-    color: var(--text);
-    text-shadow: none;
-  }
-}
-
-.stat-number.is-counted,
-.metric-value.is-counted,
-.vf-value.is-counted {
-  animation: stat-highlight 820ms ease forwards;
-}
-
-/* ============================================================
-   SECTION RHYTHM
-   Tiny pacing cleanup without changing layout proportions.
-   ============================================================ */
-
-.section-label {
-  margin-bottom: clamp(1.25rem, 2vw, 1.6rem);
-}
-
-.projects-header,
-.skills-header,
-.certs-header {
-  margin-bottom: clamp(1rem, 1.8vw, 1.5rem);
-}
-
-.about-grid,
-.contact-grid {
-  margin-top: clamp(1.5rem, 2vw, 2rem);
-}
+.vf-value { font-variant-numeric: tabular-nums; }
 
 /* ============================================================
    KEYFRAMES
    ============================================================ */
 
 @keyframes grid-drift {
-  0% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(-8px, -10px, 0); }
-  100% { transform: translate3d(-16px, -20px, 0); }
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(-12px, -16px, 0); }
+  100% { transform: translate3d(-24px, -32px, 0); }
 }
 
 @keyframes panel-sheen {
-  0%, 100% { transform: translate3d(-8%, 0, 0); }
-  50% { transform: translate3d(8%, -4px, 0); }
+  0%, 100% { transform: translate3d(-10%, 0, 0); opacity: 0.25; }
+  50%      { transform: translate3d(10%, -6px, 0); opacity: 0.35; }
 }
 
 @keyframes trend-draw {
@@ -381,67 +192,33 @@ body::before {
 }
 
 @keyframes trend-point {
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes kpi-pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.72;
-    transform: scale(1.16);
-  }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.65; transform: scale(1.12); }
 }
 
-@media (max-width: 900px) {
-  body::before {
-    opacity: 0.035;
-    animation-duration: 38s;
-  }
+@keyframes stat-highlight {
+  0%   { color: var(--text-muted); text-shadow: none; }
+  50%  { color: var(--accent); text-shadow: 0 0 16px rgba(79,142,247,0.3), 0 0 32px rgba(79,142,247,0.1); }
+  100% { color: var(--text); text-shadow: none; }
+}
 
-  .reveal {
-    transform: translate3d(0, 14px, 0);
-    filter: blur(4px);
-  }
-
-  .panel-glow::after {
-    opacity: 0.18;
-  }
+.stat-number.is-counted,
+.metric-value.is-counted,
+.vf-value.is-counted {
+  animation: stat-highlight 900ms ease forwards;
+}
 
 /* ============================================================
-   FEATURED SURFACE EMPHASIS
+   RESPONSIVE MOTION ADJUSTMENTS
    ============================================================ */
 
-.project-featured.is-visible {
-  animation: featured-border 820ms var(--motion-ease) forwards;
+@media (max-width: 768px) {
+  body::before { opacity: 0.025; animation-duration: 40s; }
+  .reveal { transform: translate3d(0, 16px, 0); filter: blur(4px); }
+  .panel-glow::after { opacity: 0.18; }
 }
-
-@keyframes featured-border {
-  0% {
-    border-color: rgba(79, 142, 247, 0);
-    box-shadow: none;
-  }
-
-  100% {
-    border-color: rgba(79, 142, 247, 0.24);
-
-    box-shadow:
-      0 14px 32px rgba(0, 0, 0, 0.24),
-      0 0 0 1px rgba(79, 142, 247, 0.08) inset;
-  }
-}
-
-  .mini-trend {
-    width: 108px;
-  }
-}
-

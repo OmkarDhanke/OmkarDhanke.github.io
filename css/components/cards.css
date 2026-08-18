@@ -1,17 +1,91 @@
 /* ============================================================
-   ICON CARD
-   Shared card style used by skill cards and cert cards.
+   CARDS v2
+   Shared card base, icon cards, elevated cards.
    ============================================================ */
 
+/* Base card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.card:hover {
+  border-color: rgba(79, 142, 247, 0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Icon card — used by skill cards, cert cards */
 .icon-card-icon {
-  color: var(--accent);
-  width: 36px;
-  height: 36px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(79, 142, 247, 0.08);
-  border-radius: 8px;
-  border: 1px solid rgba(79, 142, 247, 0.15);
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(79, 142, 247, 0.2);
+  border-radius: var(--radius-md);
   flex-shrink: 0;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.card:hover .icon-card-icon {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Elevated card — stronger shadow for featured content */
+.card-elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.card-elevated:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Panel glow — ambient highlight for featured panels */
+.panel-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.panel-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(79, 142, 247, 0.08);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.panel-glow::after {
+  content: '';
+  position: absolute;
+  inset: auto 20% -20% 20%;
+  height: 50%;
+  background: radial-gradient(circle at 50% 0%, rgba(79, 142, 247, 0.12), transparent 70%);
+  opacity: 0.3;
+  filter: blur(16px);
+  transform: translate3d(-10%, 0, 0);
+  animation: panel-sheen 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes panel-sheen {
+  0%, 100% { transform: translate3d(-10%, 0, 0); }
+  50% { transform: translate3d(10%, -6px, 0); }
 }

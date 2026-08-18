@@ -1,17 +1,45 @@
 /* ============================================================
-   GRID & LAYOUT
+   GRID & LAYOUT v2
    Container widths, section padding, scroll margins.
    ============================================================ */
 
 /* Standard section container */
 .container {
-  max-width: var(--max-w);
+  max-width: var(--max-w-xl);
   margin: 0 auto;
+  padding: 0 var(--container-pad);
+  width: 100%;
 }
+
+.container-sm { max-width: var(--max-w-sm); }
+.container-md { max-width: var(--max-w-md); }
+.container-lg { max-width: var(--max-w-lg); }
+.container-2xl { max-width: var(--max-w-2xl); }
 
 /* Standard section padding */
 .section {
-  padding: clamp(1.5rem, 3vw, 3rem) clamp(1.25rem, 3vw, 3rem);
+  padding: var(--space-section-md) var(--container-pad);
   border-top: 1px solid var(--border);
   scroll-margin-top: var(--nav-h);
+}
+
+.section-sm { padding: var(--space-section-sm) var(--container-pad); }
+.section-lg { padding: var(--space-section-lg) var(--container-pad); }
+.section-xl { padding: var(--space-section-xl) var(--container-pad); }
+
+/* Grid utilities */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
+
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 { grid-template-columns: 1fr; }
 }
