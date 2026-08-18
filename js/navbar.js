@@ -15,7 +15,9 @@ const mobileBreakpoint = window.matchMedia('(max-width: 900px)');
 const mobileMenuCloseDelay = 220;
 
 function getNavScrollOffset() {
-  return navbar.offsetHeight + (mobileBreakpoint.matches ? 8 : 8);
+  const navHeight = navbar.offsetHeight;
+  const extraOffset = mobileBreakpoint.matches ? 16 : 12;
+  return navHeight + extraOffset;
 }
 
 function updateNavbarSpacing() {
