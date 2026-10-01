@@ -70,6 +70,12 @@
     drop-shadow(0 0 8px rgba(79,142,247,0.45));
 }
 
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .skill-card-icon {
   color: var(--accent);
   width: 36px;
