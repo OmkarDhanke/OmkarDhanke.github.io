@@ -24,7 +24,7 @@
 @import 'sections/hero.css';
 @import 'sections/about.css';
 @import 'sections/projects.css?v=20260606-project-nav';
-@import 'sections/skills.css';
+@import 'sections/skills.css?v=20261002-skill-header';
 @import 'sections/certifications.css';
 @import 'sections/contact.css';
 @import 'sections/experience.css';
