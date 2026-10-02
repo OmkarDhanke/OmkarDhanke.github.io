@@ -7,7 +7,7 @@
 /* Large monitors */
 @media (min-width: 1440px) {
   :root { --max-w: min(1300px, 90vw); }
-  .hero-headline { font-size: clamp(2.8rem, 3vw, 3.6rem); }
+  .hero-headline { font-size: clamp(2.4rem, 2.6vw, 2.6rem); }
 }
 
 /* 14-inch laptops — 1366px */
@@ -17,7 +17,6 @@
     gap: 4%;
   }
   .hero-headline { font-size: clamp(1.6rem, 2.2vw, 2.8rem); }
-  .card-body { max-height: 320px; }
 }
 
 /* Standard laptop */
@@ -27,7 +26,6 @@
   .hero-container {
     grid-template-columns: 54% 42%;
   }
-  .card-body { max-height: 300px; }
 }
 
 
@@ -44,6 +42,7 @@
   .hero-left,
   .hero-right { justify-content: flex-start; }
   .hero-card { max-width: 560px; }
+  .card-body { flex: none; height: clamp(260px, 40vh, 340px); }
   .hero-sub { max-width: 100%; }
 
   .project-featured {
@@ -134,7 +133,7 @@
   .hero-tag { font-size: 0.68rem; }
   .hero-headline { font-size: clamp(1.7rem, 7.5vw, 2.2rem); line-height: 1.15; }
   .hero-sub { font-size: 0.875rem; line-height: 1.75; }
-  .hero-actions { flex-direction: column; }
+  .hero-actions { grid-template-columns: 1fr; max-width: none; }
   .btn-primary, .btn-secondary {
     width: 100%;
     text-align: center;

@@ -17,19 +17,24 @@
   margin-bottom: 1.5rem;
 }
 
+.projects .section-label,
+.projects .projects-header {
+  margin-bottom: 1rem;
+}
+
 .projects-headline {
   font-family: var(--font-head);
   font-size: clamp(1.2rem, 1.8vw, 1.6rem);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .projects-sub {
   font-size: 0.95rem;
   color: var(--text-muted);
-  max-width: 520px;
+  max-width: none;
   line-height: 1.8;
 }
 

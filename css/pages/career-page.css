@@ -1,0 +1,201 @@
+/* ============================================================
+   CAREER PAGE
+   Company heading + dated vertical timeline. No animation.
+   ============================================================ */
+
+.proj-page-header.career-header { padding-bottom: 2rem; }
+
+.career-header .proj-page-sub { margin-bottom: 0; }
+
+.career-body { padding: 0 0 4rem; }
+
+.career-company-head {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.career-company-name {
+  font-family: var(--font-head);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.career-company-meta {
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.career-roles {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row: date | rail | card */
+.career-role {
+  --career-dot-y: 2.2rem;
+  display: grid;
+  grid-template-columns: 140px 24px minmax(0, 1fr);
+  grid-template-areas: "dates rail card";
+  column-gap: 1rem;
+}
+
+.career-role-dates {
+  grid-area: dates;
+  padding-top: 1.65rem;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.career-role--current .career-role-dates { color: var(--accent); }
+
+/* Vertical line + dot */
+.career-rail {
+  grid-area: rail;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.career-rail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--border);
+}
+
+.career-role:first-child .career-rail::before { top: var(--career-dot-y); }
+
+.career-role:last-child .career-rail::before {
+  bottom: auto;
+  height: var(--career-dot-y);
+}
+
+.career-dot {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  margin-top: calc(var(--career-dot-y) - 6px);
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--text-muted);
+}
+
+.career-role--current .career-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 4px rgba(79, 142, 247, 0.15),
+    0 0 12px rgba(79, 142, 247, 0.55);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+/* Card */
+.career-card {
+  grid-area: card;
+  margin-bottom: 1.25rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.career-role:last-child .career-card { margin-bottom: 0; }
+
+.career-role--current .career-card { border-color: rgba(79, 142, 247, 0.28); }
+
+.career-card-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.career-role-title {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.career-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: rgba(40, 200, 64, 0.08);
+  border: 1px solid rgba(40, 200, 64, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+}
+
+.career-role-team {
+  margin-top: 0.2rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.career-role-note {
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.career-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.career-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Mobile: rail on the left, date above the card */
+@media (max-width: 640px) {
+  .career-role {
+    --career-dot-y: 0.6rem;
+    grid-template-columns: 20px minmax(0, 1fr);
+    grid-template-areas:
+      "rail dates"
+      "rail card";
+    column-gap: 0.75rem;
+  }
+
+  .career-role-dates {
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  .career-card { padding: 1.15rem; }
+}

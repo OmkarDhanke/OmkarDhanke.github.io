@@ -47,6 +47,7 @@
   display: grid;
   grid-template-columns: 52% 44%;
   align-items: stretch;
+  align-content: center;
 }
 
 /* Columns */
@@ -176,7 +177,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .pill:hover {
@@ -188,10 +189,34 @@
 
 /* CTA buttons row */
 .hero-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.85rem;
-  flex-wrap: wrap;
-  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+  max-width: 650px;
+  margin-bottom: 0;
+}
+
+.hero-actions .btn-primary,
+.hero-actions .btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0.72rem 0.5rem;
+  text-align: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-actions .btn-secondary:hover {
+    border-color: rgba(79, 142, 247, 0.8);
+    box-shadow: 0 0 14px rgba(79, 142, 247, 0.3);
+  }
+}
+
+.hero-actions .btn-secondary:focus-visible {
+  outline: none;
+  border-color: rgba(79, 142, 247, 0.8);
+  box-shadow: 0 0 14px rgba(79, 142, 247, 0.3);
 }
 
 /* Stats row */
@@ -237,4 +262,11 @@
 .hero-right {
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 1025px) {
+  .hero-left {
+    justify-content: space-between;
+    min-height: clamp(460px, 62vh, 560px);
+  }
 }
