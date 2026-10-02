@@ -1,0 +1,100 @@
+/* ============================================================
+   PROFILE PHOTO MODAL
+   Navbar avatar trigger + blurred full-screen photo overlay.
+   The overlay is appended to <body> by js/profile-modal.js so the
+   navbar's backdrop-filter cannot trap it.
+   ============================================================ */
+
+/* Trigger */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-avatar-btn {
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 50%;
+  cursor: zoom-in;
+}
+
+.nav-avatar-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.35);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-avatar-btn:hover .nav-avatar { border-color: var(--accent); }
+}
+
+/* Overlay */
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(10, 10, 15, 0.6);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 260ms var(--motion-ease),
+    visibility 260ms var(--motion-ease);
+}
+
+.profile-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.profile-modal-img {
+  width: min(78vmin, 440px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(79, 142, 247, 0.45);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(79, 142, 247, 0.18);
+  transform: scale(0.92);
+  transition: transform 320ms var(--motion-ease);
+}
+
+.profile-modal.is-open .profile-modal-img { transform: scale(1); }
+
+.profile-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(18, 18, 26, 0.8);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.profile-modal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+.profile-modal-close:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.25);
+}
+
+/* Stop the page scrolling behind the overlay */
+html.profile-modal-open { overflow: hidden; }

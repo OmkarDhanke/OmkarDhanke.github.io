@@ -36,10 +36,12 @@
   <!-- ============ NAVBAR ============ -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">
-        <img src="assets/images/profile.png" class="nav-avatar" alt="Omkar Dhanke profile photo" />
-        Omkar<span class="accent-name">Dhanke.</span>
-      </a>
+      <div class="nav-brand">
+      <button type="button" class="nav-avatar-btn" aria-label="View profile photo" aria-haspopup="dialog">
+        <img src="assets/images/profile.png" class="nav-avatar" alt="" />
+      </button>
+      <a href="#home" class="nav-logo">Omkar<span class="accent-name">Dhanke.</span></a>
+    </div>
 
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -741,6 +743,7 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="js/aos-init.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/profile-modal.js"></script>
   <script src="js/code-rotator.js"></script>
   <script src="js/project-showcase.js"></script>
 

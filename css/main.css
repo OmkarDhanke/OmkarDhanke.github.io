@@ -19,6 +19,7 @@
 @import 'components/badges.css';
 @import 'components/cards.css';
 @import 'components/code-block.css';
+@import 'components/profile-modal.css';
 
 /* 4. Sections — one file per page section */
 @import 'sections/hero.css';
