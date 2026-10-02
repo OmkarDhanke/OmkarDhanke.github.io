@@ -199,3 +199,20 @@
 
   .career-card { padding: 1.15rem; }
 }
+
+.career-card {
+  transition:
+    transform 220ms var(--motion-ease-soft),
+    border-color 220ms var(--motion-ease-soft),
+    box-shadow 220ms var(--motion-ease-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .career-card:hover {
+    transform: translate3d(0, -4px, 0);
+    border-color: rgba(79, 142, 247, 0.28);
+    box-shadow:
+      0 14px 32px rgba(0, 0, 0, 0.28),
+      0 0 0 1px rgba(79, 142, 247, 0.08) inset;
+  }
+}
