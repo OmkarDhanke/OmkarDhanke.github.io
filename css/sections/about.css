@@ -240,6 +240,30 @@
   border-top: 1px solid var(--border);
 }
 
+/* Separate, compact link container beneath the current role card */
+.about-experience-link-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.about-experience-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.about-experience-link:hover {
+  border-color: rgba(79,142,247,0.45);
+  background: rgba(79,142,247,0.06);
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .about-grid {
@@ -266,4 +290,4 @@
   .about-headline {
     font-size: 1.4rem;
   }
-} 
+}
